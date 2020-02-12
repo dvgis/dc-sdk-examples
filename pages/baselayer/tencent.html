@@ -1,0 +1,13 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createTencentImageryLayer()
+    viewer.addBaseLayer(baselayer, {
+      name: '电子',
+      iconUrl: 'examples/images/icon/elec.png'
+    })
+  }
+  DC.ready(initViewer)
+</script>

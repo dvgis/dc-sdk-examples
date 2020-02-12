@@ -1,0 +1,20 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    baselayer.defaultAlpha = 1 //透明度 0~1
+    baselayer.defaultBrightness = 2 //亮度 1为界点
+    baselayer.defaultContrast = 1 //对比度  1为界点
+    baselayer.defaultGamma = undefined //伽马强度
+    baselayer.defaultSaturation = undefined // 饱和度
+    viewer.addBaseLayer(baselayer, {
+      iconUrl: 'examples/images/icon/img.png',
+      name: '地图'
+    })
+  }
+  DC.ready(initViewer)
+</script>

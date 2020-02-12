@@ -1,0 +1,34 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function generatePosition(num) {
+    var list = []
+    for (var i = 0; i < num; i++) {
+      var lng = 120.38105869 + Math.random() * 0.5
+      var lat = 31.10115627 + Math.random() * 0.5
+      list.push(new DC.Position(lng, lat))
+    }
+    return list
+  }
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+    let positions = generatePosition(10)
+    positions.forEach((item, index) => {
+      let label = new DC.Label(item, '数据视觉')
+      label.setStyle({
+        fillColor: DC.Color.YELLOW,
+        font: '12px'
+      })
+      layer.addOverlay(label)
+    })
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>

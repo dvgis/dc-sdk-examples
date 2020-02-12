@@ -1,0 +1,12 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createSingleTileImageryLayer({
+      url: 'examples/images/tile/world_d.jpg'
+    })
+    viewer.addBaseLayer(baselayer)
+  }
+  DC.ready(initViewer)
+</script>
