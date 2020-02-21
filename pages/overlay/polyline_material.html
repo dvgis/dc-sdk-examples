@@ -1,0 +1,62 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+
+    layer.addOverlay(
+      new DC.Polyline('-75, 35; -125, 35').setStyle({
+        width: 2,
+        material: DC.Color.RED,
+        clampToGround: true
+      })
+    )
+
+    layer.addOverlay(
+      new DC.Polyline('-75, 37; -125, 37').setStyle({
+        width: 2,
+        material: new DC.PolylineGlowMaterialProperty({
+          glowPower: 0.2,
+          taperPower: 0.5,
+          color: DC.Color.CORNFLOWERBLUE
+        })
+      })
+    )
+
+    layer.addOverlay(
+      new DC.Polyline('-75,39,250000; -125,39,250000').setStyle({
+        width: 2,
+        material: new DC.PolylineOutlineMaterialProperty({
+          color: DC.Color.ORANGE,
+          outlineWidth: 2,
+          outlineColor: DC.Color.BLACK
+        })
+      })
+    )
+
+    layer.addOverlay(
+      new DC.Polyline('-75,43,500000; -125,43,500000').setStyle({
+        width: 2,
+        material: new DC.PolylineArrowMaterialProperty(DC.Color.PURPLE)
+      })
+    )
+
+    layer.addOverlay(
+      new DC.Polyline('-75,45,500000; -125,45,500000').setStyle({
+        width: 2,
+        material: new DC.PolylineDashMaterialProperty({
+          color: DC.Color.CYAN
+        })
+      })
+    )
+    material: viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>

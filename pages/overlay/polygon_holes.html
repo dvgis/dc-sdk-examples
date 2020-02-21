@@ -1,0 +1,26 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+
+    let polygon = new DC.Polygon(
+      '-99.0, 30.0;-85.0, 30.0;-85.0, 40.0;-99.0, 40.0'
+    )
+    polygon.holes = ['-97.0, 31.0;-97.0, 39.0; -87.0, 39.0;-87.0, 31.0']
+    polygon.setStyle({
+      height: 0,
+      material: DC.Color.RED
+    })
+    layer.addOverlay(polygon)
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>

@@ -1,0 +1,25 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+
+    let polygon = new DC.Polygon('-108.0, 42.0; -100.0, 42.0;-104.0, 40.0')
+    polygon.setStyle({
+      extrudedHeight: 500000.0,
+      material: DC.Color.RED,
+      closeTop: false,
+      closeBottom: false
+    })
+    layer.addOverlay(polygon)
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>

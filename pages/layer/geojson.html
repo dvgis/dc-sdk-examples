@@ -1,0 +1,22 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container', {
+      sceneMode: DC.SceneMode.SCENE2D
+    })
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.GeoJsonLayer(
+      'layer',
+      'examples/data/simplestyles.geojson'
+    )
+    viewer.addLayer(layer)
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>

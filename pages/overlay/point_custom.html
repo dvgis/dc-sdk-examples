@@ -1,0 +1,42 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function generatePosition(num) {
+    var list = []
+    for (var i = 0; i < num; i++) {
+      var lng = 120.38105869 + Math.random() * 0.5
+      var lat = 31.10115627 + Math.random() * 0.5
+      list.push(new DC.Position(lng, lat, 3000))
+    }
+    return list
+  }
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+    let positions = generatePosition(20)
+    let material = new DC.PolylineDashMaterialProperty({
+      color: DC.Color.YELLOW
+    })
+    positions.forEach(item => {
+      let billboard = new DC.CustomBillboard(
+        item,
+        'examples/images/icon/camera.png'
+      )
+      billboard
+        .setLine({
+          width: 2,
+          material
+        })
+        .setCircle(300, {
+          material: DC.Color.RED
+        })
+      layer.addOverlay(billboard)
+    })
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>
