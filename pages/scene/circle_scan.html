@@ -1,0 +1,15 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container').setOptions({ underground: true })
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
+    viewer.addBaseLayer(baselayer)
+    let position = new DC.Position(120.38105869, 31.10115627, 20)
+    let circleScanEffect = new DC.CircleScanEffect('suzhou', position, 1000)
+    viewer.addEffect(circleScanEffect)
+    viewer.flyToPosition(new DC.Position(120.380788, 31.066719, 2136, 0, -30))
+  }
+  DC.ready(initViewer)
+</script>

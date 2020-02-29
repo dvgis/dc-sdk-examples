@@ -1,0 +1,10 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    viewer.setPitchRange(-90, -60)
+  }
+  DC.ready(initViewer)
+</script>

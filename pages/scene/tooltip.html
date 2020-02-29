@@ -1,0 +1,13 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    viewer.tooltip.enable = true
+    viewer.on(DC.MouseEventType.MOUSE_MOVE, e => {
+      viewer.tooltip.setPosition(e.position).setContent('我是鼠标提示')
+    })
+  }
+  DC.ready(initViewer)
+</script>

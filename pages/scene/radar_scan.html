@@ -1,0 +1,21 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container').setOptions({ underground: true })
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
+    viewer.addBaseLayer(baselayer)
+    let position = new DC.Position(120.38105869, 31.10115627, 20)
+    let radarScanEffect = new DC.RadarScanEffect(
+      'suzhou',
+      position,
+      1000,
+      DC.Color.BLUE,
+      8e3
+    )
+    viewer.addEffect(radarScanEffect)
+    viewer.flyToPosition(new DC.Position(120.380788, 31.066719, 2136, 0, -30))
+  }
+  DC.ready(initViewer)
+</script>

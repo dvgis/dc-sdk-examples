@@ -1,0 +1,9 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container').setOptions({ underground: true })
+  }
+  DC.ready(initViewer)
+</script>

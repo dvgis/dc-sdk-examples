@@ -1,0 +1,11 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    viewer.on(DC.SceneEventType.POST_RENDER, e => {
+      console.log(e)
+    })
+  }
+  DC.ready(initViewer)
+</script>
