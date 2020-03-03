@@ -4,6 +4,10 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container').setOptions({ underground: true })
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
   }
   DC.ready(initViewer)
 </script>

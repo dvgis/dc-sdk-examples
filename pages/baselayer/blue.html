@@ -3,13 +3,10 @@
   let viewer = undefined
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createSingleTileImageryLayer({
+      url: 'examples/images/tile/world_b.jpg'
     })
     viewer.addBaseLayer(baselayer)
-    viewer.on(DC.SceneEventType.POST_RENDER, e => {
-      console.log(e)
-    })
   }
   DC.ready(initViewer)
 </script>

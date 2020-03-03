@@ -6,10 +6,8 @@
     viewer = new DC.Viewer('viewer-container').setOptions({
       globe: false
     })
-
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)
-
     let polyline = new DC.Polyline('-75, 35; -125, 35')
     polyline.setStyle({
       width: 10,

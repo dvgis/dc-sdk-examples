@@ -3,6 +3,10 @@
   let viewer = undefined
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
     viewer.on(DC.SceneEventType.CLOCK_TICK, e => {})
   }
   DC.ready(initViewer)

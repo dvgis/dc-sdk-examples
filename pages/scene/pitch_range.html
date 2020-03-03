@@ -4,6 +4,10 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
     viewer.setPitchRange(-90, -60)
   }
   DC.ready(initViewer)

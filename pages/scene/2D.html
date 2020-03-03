@@ -6,6 +6,10 @@
     viewer = new DC.Viewer('viewer-container', {
       sceneMode: 2
     })
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
   }
   DC.ready(initViewer)
 </script>
