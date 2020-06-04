@@ -4,7 +4,9 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container').setOptions({
-      globe: false
+      globe: {
+        show: false
+      }
     })
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)

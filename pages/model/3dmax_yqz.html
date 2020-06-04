@@ -1,0 +1,22 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+
+    viewer.addBaseLayer(baselayer)
+
+    let layer = new DC.TilesetLayer('layer')
+    viewer.addLayer(layer)
+    let tileset = new DC.Tileset(
+      'http://data.marsgis.cn/3dtiles/max-ytlhz/tileset.json'
+    )
+    layer.addOverlay(tileset)
+    viewer.flyTo(tileset)
+  }
+  DC.ready(initViewer)
+</script>

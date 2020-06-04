@@ -3,7 +3,11 @@
   let viewer = undefined
 
   function initViewer() {
-    viewer = new DC.Viewer('viewer-container').setOptions({ underground: true })
+    viewer = new DC.Viewer('viewer-container').setOptions({
+      globe: {
+        undergroundMode: true
+      }
+    })
     let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
     viewer.addBaseLayer(baselayer)
     let position = new DC.Position(120.38105869, 31.10115627, 20)
@@ -12,7 +16,7 @@
       position,
       1000,
       DC.Color.BLUE,
-      8e3
+      10
     )
     viewer.addEffect(radarScanEffect)
     viewer.flyToPosition(new DC.Position(120.380788, 31.066719, 2136, 0, -30))

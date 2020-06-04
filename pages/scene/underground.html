@@ -3,7 +3,11 @@
   let viewer = undefined
 
   function initViewer() {
-    viewer = new DC.Viewer('viewer-container').setOptions({ underground: true })
+    viewer = new DC.Viewer('viewer-container').setOptions({
+      globe: {
+        undergroundMode: true
+      }
+    })
     let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
       style: 'img'
     })
