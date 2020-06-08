@@ -1,0 +1,29 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer, {
+      iconUrl: 'examples/images/icon/img.png',
+      name: '地图'
+    })
+
+    let terrain = DC.TerrainFactory.createUrlTerrain({
+      url: 'http://data.marsgis.cn/terrain'
+    })
+    viewer.addTerrain(terrain)
+    viewer.flyToPosition(
+      new DC.Position(
+        96.70456483909693,
+        28.883444927447762,
+        48977.26981733466,
+        0,
+        -31
+      )
+    )
+  }
+  DC.ready(initViewer)
+</script>
