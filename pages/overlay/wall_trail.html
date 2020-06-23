@@ -11,16 +11,16 @@
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)
 
-    let polyline = new DC.Polyline('-75, 35; -125, 35')
-    polyline.setStyle({
-      width: 3,
-      material: new DC.PolylineTrailMaterialProperty({
-        color: DC.Color.RED,
+    let wall = new DC.Wall(
+      '-107.0,43.0,100000.0;-97.0,43.0,100000.0;-97.0,40.0,100000.0;-107.0,40.0,100000.0;-107.0,43.0,100000.0'
+    )
+    wall.setStyle({
+      material: new DC.WallTrailMaterialProperty({
+        color: DC.Color.GREEN,
         speed: 10
-      }),
-      clampToGround: true
+      })
     })
-    layer.addOverlay(polyline)
+    layer.addOverlay(wall)
     viewer.flyTo(layer)
   }
   DC.ready(initViewer)

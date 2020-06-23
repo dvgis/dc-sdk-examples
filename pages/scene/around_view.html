@@ -1,0 +1,19 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    viewer.flyToPosition(
+      new DC.Position(120.1223, 31.1232, 1e5, 0, -90),
+      () => {
+        new DC.AroundView(viewer, { duration: 20 })
+      }
+    )
+  }
+  DC.ready(initViewer)
+</script>

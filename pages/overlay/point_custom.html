@@ -26,14 +26,10 @@
         item,
         'examples/images/icon/camera.png'
       )
-      billboard
-        .setLine({
-          width: 2,
-          material
-        })
-        .setCircle(300, {
-          material: DC.Color.RED
-        })
+      billboard.setVLine({
+        width: 2,
+        material
+      })
       layer.addOverlay(billboard)
     })
     viewer.flyTo(layer)
