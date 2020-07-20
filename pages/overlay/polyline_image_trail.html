@@ -21,7 +21,21 @@
       }),
       clampToGround: true
     })
-    layer.addOverlay(polyline)
+
+    let polyline1 = new DC.Polyline('-75, 25; -100, 25')
+    polyline1.setStyle({
+      width: 10,
+      arcType: 1,
+      material: new DC.PolylineImageTrailMaterialProperty({
+        color: DC.Color.GREEN,
+        speed: 20,
+        image: 'examples/images/icon/arrow_1.png',
+        repeat: { x: 40, y: 1 }
+      }),
+      clampToGround: true
+    })
+
+    layer.addOverlay(polyline).addOverlay(polyline1)
     viewer.flyTo(layer)
   }
   DC.ready(initViewer)
