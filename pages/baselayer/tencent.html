@@ -5,9 +5,29 @@
     viewer = new DC.Viewer('viewer-container')
     let baselayer = DC.ImageryLayerFactory.createTencentImageryLayer()
     viewer.addBaseLayer(baselayer, {
-      name: '电子',
+      name: '经典',
       iconUrl: 'examples/images/icon/elec.png'
     })
+
+    let baselayer_2 = DC.ImageryLayerFactory.createTencentImageryLayer({
+      style: 4
+    })
+    viewer.addBaseLayer(baselayer_2, {
+      name: '墨渊',
+      iconUrl: 'examples/images/icon/dark.png'
+    })
+
+    let baselayer_3 = DC.ImageryLayerFactory.createTencentImageryLayer({
+      style: 8
+    })
+    viewer.addBaseLayer(baselayer_3, {
+      name: '白浅',
+      iconUrl: 'examples/images/icon/elec.png'
+    })
+
+    viewer.zoomToPosition(
+      new DC.Position(105.565571, 31.984708, 15362816, 0, -90)
+    )
   }
   DC.ready(initViewer)
 </script>
