@@ -4,6 +4,21 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
 
+
+    let baselayer_img = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style:'img'
+    })
+
+    let baselayer_vec = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style:'vec'
+    })
+
+    viewer.addBaseLayer([baselayer_img,baselayer_vec], {
+      iconUrl: 'examples/images/icon/img.png',
+      name: '影像'
+    })
+
+
     let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer()
     viewer.addBaseLayer(baselayer, {
       iconUrl: 'examples/images/icon/elec.png',
