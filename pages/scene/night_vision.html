@@ -1,0 +1,15 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer_midnight = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style: 'midnight'
+    })
+    viewer.addBaseLayer(baselayer_midnight)
+    let nightVisionEffect  = new DC.NightVisionEffect('night_vision')
+    viewer.addEffect(nightVisionEffect)
+  }
+  DC.ready(initViewer)
+</script>
