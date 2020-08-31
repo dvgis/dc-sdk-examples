@@ -11,6 +11,7 @@
     <script src="libs/dc-mapv/dc.mapv.min.js"></script>
     <script src="libs/dc-plugins/dc.plugins.min.js"></script>
     <script src="libs/dc-overlay/dc.overlay.min.js"></script>
+    <script src="libs/dc-plot/dc.plot.min.js"></script>
     <link href="libs/dc-sdk/dc.core.min.css" rel="stylesheet" />
 
     <style>
@@ -41,12 +42,34 @@
         border-style: solid;
         border-color: rgba(39, 39, 39, 0.6) transparent transparent transparent;
       }
-
       .dc-hawkeye-map {
         left: unset !important;
         bottom: unset !important;
         top: 20px !important;
         right: 20px !important;
+      }
+
+      .plot-box{
+        position: fixed;
+        top:20px;
+        left:80px;
+        z-index: 1000;
+        height: 50px;
+        background: rgba(0,0,0,0.6);
+        padding: 20px 10px 0 10px;
+      }
+
+      .plot-box ul li {
+        display: inline-block;
+      }
+      .plot-box ul li button {
+        width: 60px;
+        height: 30px;
+        background-color: rgba(32,160,255,.2);
+        border: 1px solid #fff;
+        color:#fff;
+        cursor: pointer;
+
       }
     </style>
   </head>

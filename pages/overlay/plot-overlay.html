@@ -1,0 +1,46 @@
+<div id="viewer-container">
+ <div class="plot-box">
+   <ul>
+     <li><button onclick="draw('point')">点</button></li>
+     <li><button onclick="draw('billboard')">图标点</button></li>
+     <li><button onclick="draw('polyline')">线</button></li>
+     <li><button onclick="draw('polygon')">面</button></li>
+     <li><button onclick="draw('circle')">圆</button></li>
+     <li><button onclick="draw('rectangle')">矩形</button></li>
+     <li><button onclick="draw('attack_arrow')">进攻箭头</button></li>
+     <li><button onclick="draw('double_arrow')">双箭头</button></li>
+     <li><button onclick="draw('fine_arrow')">直箭头</button></li>
+     <li><button onclick="draw('tailed_attack_arrow')">燕尾箭头</button></li>
+     <li><button onclick="draw('gathering_place')">聚集地</button></li>
+   </ul>
+ </div>
+</div>
+<script>
+  let viewer = undefined
+  let plot = undefined
+  let layer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style:'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+    plot= new DC.Plot(viewer)
+  }
+
+  function draw(type){
+    plot && plot.draw(type,overlay => {
+      layer.addOverlay(overlay)
+      plot.edit(overlay)
+    })
+  }
+
+
+
+
+
+  DC.ready(initViewer)
+</script>
