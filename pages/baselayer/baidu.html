@@ -20,7 +20,10 @@
 
 
     let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer()
-    viewer.addBaseLayer(baselayer, {
+    let baselayer_traffic = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style:'traffic'
+    })
+    viewer.addBaseLayer([baselayer,baselayer_traffic], {
       iconUrl: 'examples/images/icon/elec.png',
       name: '电子'
     })
