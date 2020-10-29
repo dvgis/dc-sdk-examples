@@ -1,0 +1,60 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    baselayer.defaultBrightness = 0.1
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.TilesetLayer('layer')
+    viewer.addLayer(layer)
+    let fs = `
+       varying vec3 v_positionEC;
+       void main(void){
+           vec4 position = czm_inverseModelView * vec4(v_positionEC,1); // 位置
+           float glowRange = 30.0; // 光环的移动范围(高度)
+           gl_FragColor = vec4(0, 1.0, 1.0, 1.0); // 颜色
+           gl_FragColor *= vec4(vec3(position.z / 10.0), 1.0); // 渐变
+           // 动态光环
+           float time = fract(czm_frameNumber / 360.0);
+           time = abs(time - 0.5) * 2.0;
+           float diff = step(0.005, abs( clamp(position.z / glowRange, 0.0, 1.0) - time));
+           gl_FragColor.rgb += gl_FragColor.rgb * (1.0 - diff);
+       }
+      `
+    let tileset1 = new DC.Tileset(
+      'http://lab.earthsdk.com/model/27af3f70003311eaae02359b3e5d0653/tileset.json'
+    )
+    tileset1.setCustomShader(fs)
+    layer.addOverlay(tileset1)
+
+    let tileset2 = new DC.Tileset(
+      'http://lab.earthsdk.com/model/212bc470003311eaae02359b3e5d0653/tileset.json'
+    )
+    tileset2.setCustomShader(fs)
+    layer.addOverlay(tileset2)
+    let tileset3 = new DC.Tileset(
+      'http://lab.earthsdk.com/model/1b91bf10003311eaae02359b3e5d0653/tileset.json'
+    )
+    tileset3.setCustomShader(fs)
+    layer.addOverlay(tileset3)
+
+    let layer1 = new DC.VectorLayer('layer1')
+    viewer.addLayer(layer1)
+    let circle = new DC.Circle('116.38789554,39.89911368',500)
+    circle.setStyle({
+      material: new DC.ImageMaterialProperty({
+        image: 'examples/images/icon/circleScan.png',
+        color: new DC.Color(0, 1.0, 1.0),
+        transparent: true,
+      })
+    })
+    circle.rotateAmount = 0.05
+    layer1.addOverlay(circle)
+    viewer.flyTo(tileset1)
+  }
+  DC.ready(initViewer)
+</script>

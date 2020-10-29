@@ -318,6 +318,11 @@
             "suffix": "gif"
           },
           {
+            "name": "factory",
+            "label": "数字工厂",
+            "suffix": "gif"
+          },
+          {
             "name": "osgb_dyt",
             "label": "大雁搭(倾斜摄影)"
           },
