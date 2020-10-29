@@ -1,0 +1,34 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container', {
+      sceneMode: DC.SceneMode.SCENE2D
+    })
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+
+    viewer.addBaseLayer(baselayer)
+    // let layer = new DC.GeoJsonLayer(
+    //   'layer',
+    //   'examples/data/simplestyles.geojson'
+    // )
+    // viewer.addLayer(layer)
+    // viewer.flyTo(layer)
+    const {Cesium} = DC.Namespace
+
+    viewer.delegate.dataSources.add(
+      Cesium.GeoJsonDataSource.load(
+        "examples/data/ne_10m_us_states.topojson",
+        {
+          stroke: Cesium.Color.HOTPINK,
+          fill: Cesium.Color.PINK.withAlpha(0.5),
+          strokeWidth: 3,
+        }
+      )
+    )
+  }
+  DC.ready(initViewer)
+</script>

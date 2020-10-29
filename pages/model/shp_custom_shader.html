@@ -1,0 +1,37 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    baselayer.defaultBrightness = 0.1
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.TilesetLayer('layer')
+    viewer.addLayer(layer)
+    let tileset = new DC.Tileset(
+      'http://data.marsgis.cn/3dtiles/jzw-shanghai/tileset.json'
+    )
+    let fs = `
+       varying vec3 v_positionEC;
+       void main(void){
+           vec4 position = czm_inverseModelView * vec4(v_positionEC,1); // 位置
+           float glowRange = 100.0; // 光环的移动范围(高度)
+           gl_FragColor = vec4(0.2,  0.5, 1.0, 1.0); // 颜色
+           gl_FragColor *= vec4(vec3(position.z / 100.0), 1.0); // 渐变
+           // 动态光环
+           float time = fract(czm_frameNumber / 360.0);
+           time = abs(time - 0.5) * 2.0;
+           float diff = step(0.005, abs( clamp(position.z / glowRange, 0.0, 1.0) - time));
+           gl_FragColor.rgb += gl_FragColor.rgb * (1.0 - diff);
+       }
+      `
+    tileset.setCustomShader(fs)
+    tileset.setHeight(-10)
+    layer.addOverlay(tileset)
+    viewer.flyTo(tileset)
+  }
+  DC.ready(initViewer)
+</script>
