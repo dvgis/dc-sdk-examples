@@ -8,7 +8,12 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    new DC.GlobeRotate(viewer, 5, () => {})
+    new DC.GlobeRotate(viewer, {
+      duration: 5,
+      callback:()=>{
+        console.log("completed")
+      }
+    })
   }
   DC.ready(initViewer)
 </script>

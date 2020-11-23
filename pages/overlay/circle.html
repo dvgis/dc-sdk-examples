@@ -5,8 +5,8 @@
   function generatePosition(num) {
     var list = []
     for (var i = 0; i < num; i++) {
-      var lng = 120.38105869 + Math.random() * 0.5
-      var lat = 31.10115627 + Math.random() * 0.5
+      let lng = 120.38105869 + Math.random() * 0.5
+      let lat = 31.10115627 + Math.random() * 0.5
       list.push(new DC.Position(lng, lat))
     }
     return list

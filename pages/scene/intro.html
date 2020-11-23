@@ -8,11 +8,15 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    new DC.GlobeRotate(viewer, 3, () => {
-      viewer.flyToPosition(
-        new DC.Position(120.38105869, 31.10115627, 1e5, 0, -90)
-      )
-    })
+    new DC.GlobeRotate(viewer,
+      {
+        duration:3,
+        callback: () => {
+          viewer.flyToPosition(
+            new DC.Position(120.38105869, 31.10115627, 1e5, 0, -90)
+          )
+        }
+      })
   }
   DC.ready(initViewer)
 </script>

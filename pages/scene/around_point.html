@@ -8,10 +8,11 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    let position = new DC.Position(120.1223, 31.1232, 1e4, 0, -90)
+    let position = new DC.Position(120.1223, 31.1232, 1000, 0, -90)
     viewer.flyToPosition(position, () => {
-      new DC.AroundPoint(viewer, position, { pitch: -40, duration: 20 })
-    })
+        new DC.AroundPoint(viewer, position, { pitch: -40, duration: 20 ,range:1})
+      }
+    )
   }
   DC.ready(initViewer)
 </script>

@@ -242,6 +242,12 @@
             "label": "波纹圆",
             "suffix": "gif",
             "isPlugin": true
+          },
+          {
+            "name": "circle_fade",
+            "label": "圆(逐渐消逝)",
+            "suffix": "gif",
+            "isPlugin": true
           }
         ]
       },
