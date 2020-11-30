@@ -1,0 +1,16 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    viewer.use(new DC.Weather())
+    viewer.weather.cloud.enable = true
+    viewer.weather.cloud.rotateAmount=0.02
+  }
+  DC.ready(initViewer)
+</script>

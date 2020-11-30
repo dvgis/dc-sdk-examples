@@ -10,7 +10,7 @@
     let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
       style: 'img'
     })
-    baselayer.defaultBrightness = 0.5
+    baselayer.defaultBrightness = 0.1
     viewer.addBaseLayer(baselayer)
     let layer = new DC.TilesetLayer('layer')
     viewer.addLayer(layer)
@@ -57,7 +57,10 @@
         image: 'examples/images/icon/circleScan.png',
         color: new DC.Color(0, 1.0, 1.0,0.8),
         transparent: true,
-      })
+      }),
+      perPositionHeight: true,
+      outline: true,
+      outlineColor: new DC.Color(0, 1.0, 1.0,0.8)
     })
     circle.rotateAmount = 3
     let circle1 = new DC.Circle('116.3994748,39.90784756',500)

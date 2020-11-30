@@ -4,6 +4,10 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
     viewer.tooltip.enable = true
     viewer.on(DC.MouseEventType.MOUSE_MOVE, e => {
       viewer.tooltip.showAt(e.windowPosition, '我是鼠标提示')

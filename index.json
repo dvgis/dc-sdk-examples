@@ -401,54 +401,31 @@
         ]
       },
       {
-        "name": "camera",
-        "label": "相机控制",
+        "name": "weather",
+        "label": "天气效果",
         "examples": [
           {
-            "name": "pitch_range",
-            "label": "翻转范围"
+            "name": "snow",
+            "label": "雪天效果",
+            "isPlugin": true,
+            "suffix": "gif"
           },
           {
-            "name": "limitCameraToGround",
-            "label": "禁止进入地下"
+            "name": "rain",
+            "label": "雨天效果",
+            "isPlugin": true,
+            "suffix": "gif"
           },
           {
-            "name": "camera_event",
-            "label": "相机变化事件"
-          }
-        ]
-      },
-      {
-        "name": "event",
-        "label": "事件控制",
-        "examples": [
-          {
-            "name": "viewer_event",
-            "label": "场景鼠标"
+            "name": "cloud",
+            "label": "云效果",
+            "isPlugin": true,
+            "suffix": "gif"
           },
           {
-            "name": "overlay_event",
-            "label": "覆盖物鼠标"
-          },
-          {
-            "name": "camera_move_end",
-            "label": "相机移动结束后(慎用)"
-          },
-          {
-            "name": "pre_render",
-            "label": "场景渲染前(慎用)"
-          },
-          {
-            "name": "post_render",
-            "label": "场景渲染后(慎用)"
-          },
-          {
-            "name": "morph_complete",
-            "label": "场景模式转换完成(慎用)"
-          },
-          {
-            "name": "clock_tick",
-            "label": "时间跳动(慎用)"
+            "name": "fog",
+            "label": "雾天效果",
+            "isPlugin": true
           }
         ]
       },
@@ -501,25 +478,7 @@
             "name": "night_vision",
             "label": "夜视场景",
             "isPlugin": true
-          },
-          {
-            "name": "snow",
-            "label": "雪天场景",
-            "isPlugin": true,
-            "suffix": "gif"
-          },
-          {
-            "name": "rain",
-            "label": "雨天场景",
-            "isPlugin": true,
-            "suffix": "gif"
-          },
-          {
-            "name": "fog",
-            "label": "雾天场景",
-            "isPlugin": true
           }
-
         ]
       },
       {
@@ -549,6 +508,58 @@
             "label": "跟随视角",
             "isPlugin": true,
             "suffix": "gif"
+          }
+        ]
+      },
+      {
+        "name": "camera",
+        "label": "相机控制",
+        "examples": [
+          {
+            "name": "pitch_range",
+            "label": "翻转范围"
+          },
+          {
+            "name": "limitCameraToGround",
+            "label": "禁止进入地下"
+          },
+          {
+            "name": "camera_event",
+            "label": "相机变化事件"
+          }
+        ]
+      },
+      {
+        "name": "event",
+        "label": "事件控制",
+        "examples": [
+          {
+            "name": "viewer_event",
+            "label": "场景鼠标"
+          },
+          {
+            "name": "overlay_event",
+            "label": "覆盖物鼠标"
+          },
+          {
+            "name": "camera_move_end",
+            "label": "相机移动结束后(慎用)"
+          },
+          {
+            "name": "pre_render",
+            "label": "场景渲染前(慎用)"
+          },
+          {
+            "name": "post_render",
+            "label": "场景渲染后(慎用)"
+          },
+          {
+            "name": "morph_complete",
+            "label": "场景模式转换完成(慎用)"
+          },
+          {
+            "name": "clock_tick",
+            "label": "时间跳动(慎用)"
           }
         ]
       }

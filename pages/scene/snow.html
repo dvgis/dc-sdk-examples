@@ -8,8 +8,9 @@
       style: 'midnight'
     })
     viewer.addBaseLayer(baselayer_midnight)
-    let snowEffect  = new DC.SnowEffect('snow')
-    viewer.addEffect(snowEffect)
+    viewer.use(new DC.Weather())
+    viewer.weather.snow.enable = true
+
   }
   DC.ready(initViewer)
 </script>

@@ -8,8 +8,8 @@
       style: 'midnight'
     })
     viewer.addBaseLayer(baselayer_midnight)
-    let rainEffect  = new DC.RainEffect('rain',2)
-    viewer.addEffect(rainEffect)
+    viewer.use(new DC.Weather())
+    viewer.weather.rain.enable = true
   }
   DC.ready(initViewer)
 </script>

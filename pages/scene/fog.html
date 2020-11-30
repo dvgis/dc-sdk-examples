@@ -8,14 +8,14 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    let fogEffect  = new DC.FogEffect('brightness',DC.Color.BLACK,{near:10,nearValue:0,far:2000,farValue:1.0})
-    viewer.addEffect(fogEffect)
     let layer = new DC.TilesetLayer('layer')
     viewer.addLayer(layer)
     let tileset = new DC.Tileset(
       'http://data.marsgis.cn/3dtiles/max-ytlhz/tileset.json'
     )
     layer.addOverlay(tileset)
+    viewer.use(new DC.Weather())
+    viewer.weather.fog.enable = true
     viewer.flyTo(tileset)
   }
   DC.ready(initViewer)

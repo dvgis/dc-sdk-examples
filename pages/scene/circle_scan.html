@@ -5,7 +5,7 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container').setOptions({
       globe: {
-        undergroundMode: true
+        depthTestAgainstTerrain: true
       }
     })
     let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
