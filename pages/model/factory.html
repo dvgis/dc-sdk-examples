@@ -12,10 +12,7 @@
     })
     baselayer.defaultBrightness = 0.1
     viewer.addBaseLayer(baselayer)
-    let layer = new DC.TilesetLayer('layer')
-    viewer.addLayer(layer)
-
-
+    let layer = new DC.TilesetLayer('layer').addTo(viewer)
     let fs = `
        varying vec3 v_positionEC;
        void main(void){

@@ -8,8 +8,9 @@
       style: 'midnight'
     })
     viewer.addBaseLayer(baselayer_midnight)
-    let brightnessEffect  = new DC.BrightnessEffect('brightness',1.5)
-    viewer.addEffect(brightnessEffect)
+    viewer.use(new DC.Effect())
+    viewer.effect.brightness.enable= true
+    viewer.effect.brightness.intensity = 1.5
   }
   DC.ready(initViewer)
 </script>

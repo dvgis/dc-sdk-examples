@@ -10,9 +10,7 @@
     })
     let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
     viewer.addBaseLayer(baselayer)
-    let position = new DC.Position(120.38105869, 31.10115627, 20)
-    let circleScanEffect = new DC.CircleScanEffect('suzhou', position, 1000)
-    viewer.addEffect(circleScanEffect)
+    new DC.CircleScan(viewer,  new DC.Position(120.38105869, 31.10115627, 20), 1000) // 扫描圈
     viewer.flyToPosition(new DC.Position(120.380788, 31.066719, 2136, 0, -30))
   }
   DC.ready(initViewer)

@@ -8,8 +8,8 @@
       style: 'midnight'
     })
     viewer.addBaseLayer(baselayer_midnight)
-    let nightVisionEffect  = new DC.NightVisionEffect('night_vision')
-    viewer.addEffect(nightVisionEffect)
+    viewer.use(new DC.Effect())
+    viewer.effect.night.enable= true
   }
   DC.ready(initViewer)
 </script>

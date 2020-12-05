@@ -430,8 +430,8 @@
         ]
       },
       {
-        "name": "effect",
-        "label": "场景特效",
+        "name": "animation",
+        "label": "场景动画",
         "examples": [
           {
             "name": "intro",
@@ -468,6 +468,17 @@
             "label": "雷达扫描",
             "isPlugin": true,
             "suffix": "gif"
+          }
+        ]
+      },
+      {
+        "name": "effect",
+        "label": "场景效果",
+        "examples": [
+          {
+            "name": "bloom",
+            "label": "泛光效果",
+            "isPlugin": true
           },
           {
             "name": "brightness",
@@ -518,10 +529,6 @@
           {
             "name": "pitch_range",
             "label": "翻转范围"
-          },
-          {
-            "name": "limitCameraToGround",
-            "label": "禁止进入地下"
           },
           {
             "name": "camera_event",

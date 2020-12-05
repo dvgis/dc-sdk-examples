@@ -10,15 +10,9 @@
     })
     let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
     viewer.addBaseLayer(baselayer)
-    let position = new DC.Position(120.38105869, 31.10115627, 20)
-    let radarScanEffect = new DC.RadarScanEffect(
-      'suzhou',
-      position,
-      1000,
-      DC.Color.BLUE,
-      10
-    )
-    viewer.addEffect(radarScanEffect)
+    new DC.RadarScan( viewer, new DC.Position(120.38105869, 31.10115627, 20),1000,{
+      duration: 3
+    })
     viewer.flyToPosition(new DC.Position(120.380788, 31.066719, 2136, 0, -30))
   }
   DC.ready(initViewer)
