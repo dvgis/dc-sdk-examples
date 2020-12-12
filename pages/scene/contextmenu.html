@@ -2,13 +2,37 @@
 <script>
   let viewer = undefined
 
+  function generatePosition(num) {
+    let list = []
+    for (let i = 0; i < num; i++) {
+      let lng = 120.38105869 + Math.random() * 0.5
+      let lat = 31.10115627 + Math.random() * 0.5
+      list.push([lng, lat, 0])
+    }
+    return list
+  }
+
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
     let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer').addTo(viewer)
     viewer.contextMenu.enable = true
+    let positions = generatePosition(20)
+    positions.forEach(item => {
+      let point = new DC.Point(item)
+      point.contextMenu=[{
+        label:'飞入目标',
+        callback:(viewer,overlay) => {
+          viewer.flyTo(overlay)
+        },
+        context: this
+      }]
+      point.addTo(layer)
+    })
+    viewer.flyTo(layer)
   }
   DC.ready(initViewer)
 </script>

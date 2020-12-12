@@ -387,12 +387,16 @@
             "label": "信息弹框"
           },
           {
-            "name": "hawkeyeMap",
+            "name": "hawkeye_map",
             "label": "鹰眼地图"
           },
           {
             "name": "compass",
             "label": "罗盘"
+          },
+          {
+            "name": "distance_legend",
+            "label": "比例尺"
           },
           {
             "name": "locationbar",
