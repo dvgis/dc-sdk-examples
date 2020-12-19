@@ -395,6 +395,10 @@
             "label": "罗盘"
           },
           {
+            "name": "zoom-controller",
+            "label": "缩放控制"
+          },
+          {
             "name": "distance_legend",
             "label": "比例尺"
           },
@@ -571,6 +575,28 @@
           {
             "name": "clock_tick",
             "label": "时间跳动(慎用)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "analysis",
+    "label": "编辑与分析",
+    "children": [
+      {
+        "name": "video",
+        "label": "视频融合",
+        "examples": [
+          {
+            "name": "camera_video",
+            "label": "场景视频",
+            "suffix": "gif"
+          },
+          {
+            "name": "camera_video_mask",
+            "label": "场景视频(羽化)",
+            "suffix": "gif"
           }
         ]
       }

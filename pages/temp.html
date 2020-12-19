@@ -7,13 +7,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@babel/polyfill@7.12.1/lib/index.min.js"></script>
     <script src="libs/echarts/echarts.min.js"></script>
     <script src="libs/dc-sdk/dc.base.min.js"></script>
+    <script>DC.accessToken = 'U2FsdGVkX186MMzn0URP8MIXqgvBiX9rwKGEwTKrzxuP+iMhm5da6rdYgwTJJrJpuWJT2gTTZ1Cuyn+xGESbIg==' </script>
     <script src="libs/dc-sdk/dc.core.min.js"></script>
     <script src="libs/dc-chart/dc.chart.min.js"></script>
     <script src="libs/dc-mapv/dc.mapv.min.js"></script>
     <script src="libs/dc-plugins/dc.plugins.min.js"></script>
     <script src="libs/dc-overlay/dc.overlay.min.js"></script>
     <script src="libs/dc-plot/dc.plot.min.js"></script>
+    <script src="libs/dc-analysis/dc.analysis.min.js"></script>
     <link href="libs/dc-sdk/dc.core.min.css" rel="stylesheet" />
+
 
     <style>
       * {
@@ -58,6 +61,12 @@
         height: 50px;
         background: rgba(0,0,0,0.6);
         padding: 20px 10px 0 10px;
+      }
+
+      #video{
+        position: absolute;
+        visibility: hidden;
+
       }
 
       .plot-box ul li {

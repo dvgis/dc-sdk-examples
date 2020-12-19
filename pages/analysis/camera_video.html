@@ -1,0 +1,44 @@
+<div id="viewer-container">
+  <video id="video" muted autoplay loop crossorigin controls>
+    <source src="examples/data/demo.mp4" type="video/mp4" />
+  </video>
+</div>
+<script>
+  let viewer = undefined
+  let cameraVideo = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({style:'img'})
+    viewer.addBaseLayer(baselayer)
+    let layer1 = new DC.TilesetLayer('layer').addTo(viewer)
+    let tileset = new DC.Tileset(
+      'http://earthsdk.com/v/last/Apps/assets/dayanta/tileset.json'
+    )
+    tileset.setHeight(-420)
+    layer1.addOverlay(tileset)
+    let layer = new DC.VideoLayer('layer').addTo(viewer)
+    let position =  new DC.Position(
+      108.9594135,
+      34.2184197,
+      100.25,
+      4.2,
+      -53.5,
+    )
+    viewer.flyToPosition(
+      position,
+      () => {
+        cameraVideo = new DC.CameraVideo(position,document.getElementById('video'))
+        cameraVideo.setStyle({
+          fov: 30,
+          far: 120,
+          near: 1,
+          aspectRatio: 1.3,
+          alpha:0.7
+        })
+        layer.addOverlay(cameraVideo)
+      }
+    )
+
+  }
+  DC.ready(initViewer)
+</script>

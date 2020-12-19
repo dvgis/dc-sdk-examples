@@ -25,8 +25,8 @@
       let point = new DC.Point(item)
       point.contextMenu=[{
         label:'飞入目标',
-        callback:(viewer,overlay) => {
-          viewer.flyTo(overlay)
+        callback:(e) => {
+          viewer.flyTo(e.overlay)
         },
         context: this
       }]

@@ -3,8 +3,8 @@
   let viewer = undefined
 
   function generatePosition(num) {
-    var list = []
-    for (var i = 0; i < num; i++) {
+    let list = []
+    for (let i = 0; i < num; i++) {
       let lng = 120.38105869 + Math.random() * 0.5
       let lat = 31.10115627 + Math.random() * 0.5
       list.push(new DC.Position(lng, lat))
