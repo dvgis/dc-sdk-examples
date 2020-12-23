@@ -1,7 +1,7 @@
 [
   {
     "name": "info",
-    "label": "框架简介",
+    "label": "框架基础",
     "examples": [
       {
         "name": "start",
@@ -9,7 +9,7 @@
       },
       {
         "name": "coord",
-        "label": "底图坐标"
+        "label": "瓦片坐标信息"
       },
       {
         "name": "online_code",
@@ -273,6 +273,14 @@
             "suffix": "gif"
           },
           {
+            "name": "plane",
+            "label": "平面"
+          },
+          {
+            "name": "ellipsoid",
+            "label": "球体"
+          },
+          {
             "name": "water",
             "label": "流动水面",
             "suffix": "gif"
@@ -342,7 +350,7 @@
   },
   {
     "name": "scene",
-    "label": "场景设置",
+    "label": "场景扩展",
     "children": [
       {
         "name": "scene_base",
@@ -442,7 +450,7 @@
         "label": "场景动画",
         "examples": [
           {
-            "name": "intro",
+            "name": "start_animation",
             "label": "开场动画",
             "isPlugin": true,
             "suffix": "gif"
@@ -525,6 +533,12 @@
           {
             "name": "roaming_tracked",
             "label": "跟随视角",
+            "isPlugin": true,
+            "suffix": "gif"
+          },
+          {
+            "name": "roaming_event",
+            "label": "漫游点位事件",
             "isPlugin": true,
             "suffix": "gif"
           }

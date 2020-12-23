@@ -8,7 +8,10 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    new DC.GlobeRotate(viewer,
+    viewer.use(new DC.Weather())
+    viewer.weather.cloud.enable = true
+    viewer.weather.cloud.rotateAmount=0.04
+    let globeRotate = new DC.GlobeRotate(viewer,
       {
         duration:3,
         callback: () => {
@@ -17,6 +20,7 @@
           )
         }
       })
+    globeRotate.start()
   }
   DC.ready(initViewer)
 </script>

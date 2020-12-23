@@ -1,6 +1,22 @@
-<div id="viewer-container"></div>
+<div id="viewer-container">
+  <div class="btn-box">
+    <ul>
+      <li><button onclick="start()">开始</button></li>
+      <li><button onclick="stop()">结束</button></li>
+    </ul>
+  </div>
+</div>
 <script>
   let viewer = undefined
+  let globeRotate = undefined
+
+  function start(){
+    globeRotate.start()
+  }
+
+  function stop(){
+    globeRotate.stop()
+  }
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
@@ -8,12 +24,7 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    new DC.GlobeRotate(viewer, {
-      duration: 5,
-      callback:()=>{
-        console.log("completed")
-      }
-    })
+    globeRotate = new DC.GlobeRotate(viewer)
   }
   DC.ready(initViewer)
 </script>

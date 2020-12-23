@@ -1,6 +1,22 @@
-<div id="viewer-container"></div>
+<div id="viewer-container">
+  <div class="btn-box">
+    <ul>
+      <li><button onclick="start()">开始</button></li>
+      <li><button onclick="stop()">结束</button></li>
+    </ul>
+  </div>
+</div>
 <script>
   let viewer = undefined
+  let aroundView= undefined
+
+  function start(){
+    aroundView.start()
+  }
+
+  function stop(){
+    aroundView.stop()
+  }
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
@@ -11,7 +27,7 @@
     viewer.flyToPosition(
       new DC.Position(120.1223, 31.1232, 1e5, 0, -90),
       () => {
-        new DC.AroundView(viewer, { duration: 20 })
+        aroundView = new DC.AroundView(viewer)
       }
     )
   }

@@ -21,8 +21,7 @@
     })
     let positions = "120.71450195156326,31.34008410150321;120.71575718410492, 31.32906254460538;120.71755047923497, 31.319390534202;120.71992195728619, 31.31036033288049;120.72027974558881, 31.3011861708824;120.72044382952038,31.288363396025954;120.72063046005844, 31.281477152748355;120.72044354666637,31.27731493354631"
     let rc = new DC.RoamingController(viewer)
-    rc.setTimeDuration(new Date(),20)
-    let path = new DC.RoamingPath('test')
+    let path = new DC.RoamingPath('test',20)
     path.setPositions(positions)
     path.setModel('examples/data/model/qiche.gltf',{
       scale:1
