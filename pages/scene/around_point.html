@@ -28,7 +28,7 @@
     aroundPoint  = new DC.AroundPoint(viewer,'121.48914778697578,31.21498411014459',{pitch:-41,range:2000})
     let layer = new DC.TilesetLayer('layer').addTo(viewer)
     let tileset = new DC.Tileset(
-      'http://data.marsgis.cn/3dtiles/jzw-shanghai/tileset.json'
+      'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json'
     )
     let fs = `
        varying vec3 v_positionEC;
@@ -45,7 +45,6 @@
        }
       `
     tileset.setCustomShader(fs)
-    tileset.setHeight(-10)
     layer.addOverlay(tileset)
     viewer.flyTo(tileset)
   }

@@ -1,0 +1,131 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function loadBuild(){
+    let layer = new DC.TilesetLayer('layer_build').addTo(viewer)
+    let build = new DC.Tileset(
+      'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json',
+      {skipLevels:true}
+    )
+    let fs = `
+       varying vec3 v_positionEC;
+       void main(void){
+           vec4 position = czm_inverseModelView * vec4(v_positionEC,1); // 位置
+           float glowRange = 100.0; // 光环的移动范围(高度)
+           gl_FragColor = vec4(0.2,  0.5, 1.0, 1.0); // 颜色
+           gl_FragColor *= vec4(vec3(position.z / 100.0), 1.0); // 渐变
+           // 动态光环
+           float time = fract(czm_frameNumber / 360.0);
+           time = abs(time - 0.5) * 2.0;
+           float diff = step(0.005, abs( clamp(position.z / glowRange, 0.0, 1.0) - time));
+           gl_FragColor.rgb += gl_FragColor.rgb * (1.0 - diff);
+       }
+      `
+    build.setCustomShader(fs)
+    layer.addOverlay(build)
+  }
+
+  function loadRoad(){
+    let layer_road = new DC.GeoJsonLayer('layer_road','examples/data/road_ljz.geojson')
+    layer_road.eachOverlay(item =>{
+       if(item.polyline){
+         DC.Util.merge(item.polyline,{
+           material: new  DC.PolylineTrailMaterialProperty({
+             speed: 5 ,
+             color:DC.Color.ORANGE.withAlpha(0.5)
+           }),
+           width:2
+         })
+       }
+    })
+    viewer.addLayer(layer_road)
+
+ }
+
+  function loadParabola(){
+    let layer = new DC.VectorLayer('line_layer')
+    viewer.addLayer(layer)
+    let center = DC.Position.fromObject( {lng: 121.49536592256028, lat: 31.241616722278213})
+    let positions = [
+      {lng: 121.46575474842851, lat: 31.25491511358896 },
+      {lng: 121.4813104277516, lat: 31.227003838010212 },
+      {lng: 121.50657363869442, lat: 31.227646614453125 },
+      {lng: 121.52418391477424, lat: 31.25831768661698 },
+      {lng: 121.51534816216447, lat: 31.238932318412797},
+      {lng: 121.47411195956543, lat: 31.23653254767207},
+      {lng: 121.4948618756933, lat: 31.22694576870397},
+      {lng: 121.49695060106232, lat: 31.275195479192174},
+      {lng: 121.46575474842851, lat: 31.25491511358896 },
+      {lng: 121.4813104277516, lat: 31.227003838010212 },
+      {lng: 121.50657363869442, lat: 31.227646614453125 },
+      {lng: 121.52418391477424, lat: 31.25831768661698 },
+      {lng: 121.51534816216447, lat: 31.238932318412797},
+      {lng: 121.47411195956543, lat: 31.23653254767207},
+      {lng: 121.4948618756933, lat: 31.22694576870397},
+      {lng: 121.49695060106232, lat: 31.275195479192174}].map(item=> DC.Position.fromObject(item))
+    positions.forEach(item => {
+      let line = new DC.Polyline(DC.Math.parabola(center,item,500))
+      line.setStyle({
+        width:3,
+        material:new  DC.PolylineFlowMaterialProperty({
+          speed: 5 * Math.random(),
+          color: new DC.Color(0.5, 0.8, 1.0, 1.0)
+        })
+      })
+      layer.addOverlay(line)
+    })
+  }
+
+  function loadVLine (){
+    let layer = new DC.VectorLayer('vLine_layer')
+    viewer.addLayer(layer)
+    let positions =[
+    {lng: 121.47345213010999, lat: 31.255897743532817},
+    {lng: 121.48003080908789, lat: 31.238221981850913}
+    ,{lng: 121.48587705354248, lat: 31.23057714185711}
+    ,{lng: 121.4879953677747, lat: 31.262151572375352}
+    ,{lng: 121.50906299339611, lat: 31.250152480540006}
+    ,{lng: 121.50417770232045, lat: 31.24023424714257}
+    ,{lng: 121.5182173410024, lat: 31.254527578802833}
+    ,{lng: 121.50967147857085, lat: 31.35601077672074}
+    ,{lng: 121.51899277846763, lat: 31.245648856298804} ]
+    positions.forEach(item=>{
+     let position = DC.Position.fromObject(item)
+     let end = position.copy()
+     end.alt = 1000 * Math.random()
+     let line = new DC.Polyline([position,end])
+     line.setStyle({
+       width:3,
+       material:new  DC.PolylineFlowMaterialProperty({
+         speed: 5,
+         color: new DC.Color(0.5, 0.8, 1.0, 1.0)
+       })
+     })
+     layer.addOverlay(line)
+   })
+  }
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+    baselayer.defaultBrightness = 0.1
+    viewer.addBaseLayer(baselayer)
+    let globeRotate = new DC.GlobeRotate(viewer,{
+      duration:5,
+      callback:()=>{
+        viewer.flyToPosition("121.4941629,31.2091462,1859.56,0,-28.71",()=>{
+          loadBuild()
+          loadRoad()
+          loadParabola()
+          loadVLine()
+        })
+      }
+    })
+    globeRotate.start()
+  }
+
+  DC.ready(initViewer)
+</script>

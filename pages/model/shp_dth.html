@@ -1,0 +1,28 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+      style: 'img'
+    })
+
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.TilesetLayer('layer')
+    viewer.addLayer(layer)
+    let tileset = new DC.Tileset(
+      'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json'
+    )
+    let selected = undefined
+    tileset.on(DC.MouseEventType.CLICK,e=>{
+       if(e.feature){
+         e.feature.color = DC.Color.GREEN.withAlpha(0.8)
+         selected =  e.feature
+       }
+    })
+    layer.addOverlay(tileset)
+    viewer.flyTo(tileset)
+  }
+  DC.ready(initViewer)
+</script>

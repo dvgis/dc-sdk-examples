@@ -12,7 +12,7 @@
     let layer = new DC.TilesetLayer('layer')
     viewer.addLayer(layer)
     let tileset = new DC.Tileset(
-      'http://data.marsgis.cn/3dtiles/jzw-shanghai/tileset.json'
+      'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json'
     )
     let fs = `
        varying vec3 v_positionEC;
@@ -29,7 +29,6 @@
        }
       `
     tileset.setCustomShader(fs)
-    tileset.setHeight(-10)
     layer.addOverlay(tileset)
     viewer.flyTo(tileset)
   }
