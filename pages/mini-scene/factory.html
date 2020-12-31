@@ -60,16 +60,15 @@
       outlineColor: new DC.Color(0, 1.0, 1.0,0.8)
     })
     circle.rotateAmount = 3
-    let circle1 = new DC.Circle('116.3994748,39.90784756',500)
-    circle1.setStyle({
-      classificationType:DC.ClassificationType.TERRAIN,
-      material: new DC.CircleFadeMaterialProperty({
-        color: new DC.Color(0, 1.0, 1.0,0.5),
-        speed: 10
-      })
+    layer1.addOverlay(circle)
+    let layer2 = new DC.PrimitiveLayer('layer').addTo(viewer)
+    let lineScan= new DC.LineScanPrimitive('116.3994748,39.90784756',800)
+    lineScan.setStyle({
+      color:new DC.Color(0, 1.0, 1.0,0.5)
     })
-    layer1.addOverlay(circle).addOverlay(circle1)
-    viewer.flyTo(tileset1)
+    layer2.addOverlay(lineScan)
+    viewer.flyToPosition('116.3904847,39.8773787,2807.38,0,-48.89')
+
   }
   DC.ready(initViewer)
 </script>

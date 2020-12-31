@@ -1,15 +1,27 @@
 {
-  "scene":[{
-    "name": "mini-scene",
-    "label": "微场景",
-    "examples": [
-      {
-        "name": "ljz",
-        "label": "陆家嘴",
-        "suffix": "gif"
-      }
-    ]
-  }],
+  "scene":[
+    {
+      "name": "mini-scene",
+      "label": "微场景",
+      "examples": [
+        {
+          "name": "ljz",
+          "label": "陆家嘴",
+          "suffix": "gif"
+        },
+        {
+          "name": "factory",
+          "label": "数字工厂",
+          "suffix": "gif"
+        }
+      ]
+    },
+    {
+      "name": "big-screen",
+      "label": "大屏可视化",
+      "examples": []
+    }
+  ],
   "dev":[
     {
       "name": "info",
@@ -296,6 +308,11 @@
               "name": "water",
               "label": "流动水面",
               "suffix": "gif"
+            },
+            {
+              "name": "line_scan",
+              "label": "线扫描",
+              "suffix": "gif"
             }
           ]
         },
@@ -341,11 +358,6 @@
             {
               "name": "shp_custom_shader",
               "label": "矢量白膜(自定义shader)",
-              "suffix": "gif"
-            },
-            {
-              "name": "factory",
-              "label": "数字工厂",
               "suffix": "gif"
             },
             {
