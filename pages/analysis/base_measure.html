@@ -1,0 +1,44 @@
+<div id="viewer-container"></div>
+<div class="btn-box">
+  <ul>
+    <li><button onclick="distance(true)">贴地测距</button></li>
+    <li><button onclick="distance(false)">贴物测距</button></li>
+    <li><button onclick="area(true)">贴地面积</button></li>
+    <li><button onclick="area(false)">贴物面积</button></li>
+    <li><button onclick="deactivate()">清除</button></li>
+  </ul>
+</div>
+<script>
+  let viewer = undefined
+
+  function distance(clampToGround){
+    viewer.measure.activate(DC.MeasureType.DISTANCE,{
+      clampToGround:clampToGround
+    })
+  }
+
+  function area(clampToGround){
+    viewer.measure.activate(DC.MeasureType.AREA,{
+      clampToGround:clampToGround
+    })
+  }
+
+  function deactivate(){
+    viewer.measure.deactivate()
+  }
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({style:'img'})
+    viewer.addBaseLayer(baselayer)
+    viewer.use(new DC.Measure())
+    let layer = new DC.TilesetLayer('layer').addTo(viewer)
+    let tileset = new DC.Tileset(
+      'http://earthsdk.com/v/last/Apps/assets/dayanta/tileset.json'
+    )
+    tileset.setHeight(-420)
+    layer.addOverlay(tileset)
+    viewer.flyTo(tileset)
+  }
+  DC.ready(initViewer)
+</script>

@@ -33,7 +33,8 @@ body,
   right: 20px !important;
 }
 
-.btn-box{
+
+.btn-box,.check-wrapper{
   position: fixed;
   top: 20px;
   left: 80px;
@@ -45,11 +46,17 @@ body,
   color:#fff;
 }
 
+.check-wrapper {
+  height: 30px;
+  padding-top: 10px;
+}
+
 #video{
   position: absolute;
   visibility: hidden;
 
 }
+
 
 .btn-box ul li {
   display: inline-block;
@@ -63,4 +70,5 @@ body,
   cursor: pointer;
   outline: none;
 }
+
 

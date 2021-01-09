@@ -1,6 +1,15 @@
 <div id="viewer-container"></div>
+<div class="check-wrapper">
+  <input type="checkbox" name="check_enable" checked="true" onclick="changeEnable(this.checked)" /> 是否启用
+</div>
+
 <script>
   let viewer = undefined
+
+  function changeEnable(checked){
+   viewer.mapSplit.enable = Boolean(checked)
+  }
+
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
 
@@ -13,7 +22,7 @@
     })
     let baselayer_elc = DC.ImageryLayerFactory.createGoogleImageryLayer()
     viewer.mapSplit.enable = true
-    viewer.mapSplit.addBaseLayer(baselayer_elc, -1)
+    viewer.mapSplit.addBaseLayer(baselayer_elc)
   }
   DC.ready(initViewer)
 </script>

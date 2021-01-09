@@ -1,6 +1,13 @@
 <div id="viewer-container"></div>
+<div class="check-wrapper">
+  <input type="checkbox" name="check_enable" checked="true" onclick="changeEnable(this.checked)" /> 是否启用
+</div>
 <script>
   let viewer = undefined
+
+  function changeEnable(checked){
+    viewer.zoomController.enable = Boolean(checked)
+  }
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')

@@ -14,13 +14,20 @@
     let tileset = new DC.Tileset(
       'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json'
     )
-    let selected = undefined
-    tileset.on(DC.MouseEventType.CLICK,e=>{
-       if(e.feature){
-         e.feature.color = DC.Color.GREEN.withAlpha(0.8)
-         selected =  e.feature
-       }
-    })
+    let style = new DC.TilesetStyle()
+    style.color = {
+      conditions: [
+        ['${Height} >= 300', 'rgba(45, 0, 75, 0.5)'],
+        ['${Height} >= 200', 'rgb(102, 71, 151)'],
+        ['${Height} >= 100', 'rgb(170, 162, 204)'],
+        ['${Height} >= 50', 'rgb(224, 226, 238)'],
+        ['${Height} >= 25', 'rgb(252, 230, 200)'],
+        ['${Height} >= 10', 'rgb(248, 176, 87)'],
+        ['${Height} >= 5', 'rgb(198, 106, 11)'],
+        ['true', 'rgb(127, 59, 8)']
+      ]
+    }
+    tileset.setStyle(style)
     layer.addOverlay(tileset)
     viewer.flyTo(tileset)
   }
