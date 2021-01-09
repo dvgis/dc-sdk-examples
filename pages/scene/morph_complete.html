@@ -3,8 +3,8 @@
   let viewer = undefined
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style: 'dark'
     })
     viewer.addBaseLayer(baselayer)
     viewer.on(DC.SceneEventType.MORPH_COMPLETE, e => {

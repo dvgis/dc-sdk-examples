@@ -1,14 +1,19 @@
-<div id="viewer-container"></div>
-<video id="video" muted autoplay loop crossorigin controls>
-  <source src="examples/data/demo.mp4" type="video/mp4" />
-</video>
+<div id="viewer-container">
+  <video id="video" muted autoplay loop crossorigin controls>
+    <source src="examples/data/demo.mp4" type="video/mp4" />
+  </video>
+</div>
+
 <script>
   let viewer = undefined
   let cameraVideo = undefined
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({style:'img'})
-    viewer.addBaseLayer(baselayer)
+    viewer.setOptions({
+      globe:{
+        baseColor:DC.Color.BLACK
+      }
+    })
     let layer1 = new DC.TilesetLayer('layer').addTo(viewer)
     let tileset = new DC.Tileset(
       'http://earthsdk.com/v/last/Apps/assets/dayanta/tileset.json'

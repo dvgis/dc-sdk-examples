@@ -4,11 +4,16 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    // let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    //   style: 'img'
+    // })
+    //
+    // viewer.addBaseLayer(baselayer)
+    viewer.setOptions({
+      globe:{
+        baseColor:DC.Color.BLACK
+      }
     })
-
-    viewer.addBaseLayer(baselayer)
 
     let layer = new DC.TilesetLayer('layer')
     viewer.addLayer(layer)

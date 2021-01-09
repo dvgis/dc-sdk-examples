@@ -5,13 +5,11 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
     viewer.setOptions({
-      shadows:true
+      shadows:true,
+      globe:{
+        baseColor:DC.Color.BLACK
+      }
     })
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
-    })
-    baselayer.defaultBrightness = 0.1
-    viewer.addBaseLayer(baselayer)
     let layer = new DC.TilesetLayer('layer').addTo(viewer)
     let fs = `
        varying vec3 v_positionEC;
@@ -62,13 +60,12 @@
     circle.rotateAmount = 3
     layer1.addOverlay(circle)
     let layer2 = new DC.PrimitiveLayer('layer').addTo(viewer)
-    let lineScan= new DC.LineScanPrimitive('116.3994748,39.90784756',800)
-    lineScan.setStyle({
+    let scanCircle= new DC.ScanCirclePrimitive('116.3994748,39.90784756',800)
+    scanCircle.setStyle({
       color:new DC.Color(0, 1.0, 1.0,0.5)
     })
-    layer2.addOverlay(lineScan)
+    layer2.addOverlay(scanCircle)
     viewer.flyToPosition('116.3904847,39.8773787,2807.38,0,-48.89')
-
   }
   DC.ready(initViewer)
 </script>

@@ -20,7 +20,7 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)

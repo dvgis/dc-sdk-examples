@@ -14,8 +14,11 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
-    viewer.addBaseLayer(baselayer)
+    viewer.setOptions({
+      globe:{
+        baseColor:DC.Color.BLACK
+      }
+    })
     let layer = new DC.ClusterLayer('layer')
     viewer.addLayer(layer)
     let positions = generatePosition(10000)

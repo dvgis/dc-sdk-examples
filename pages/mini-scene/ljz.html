@@ -108,10 +108,12 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    let key = '1c3ff1358b17417f1782dd1ae7bdd00a'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
       style: 'img'
     })
-    baselayer.defaultBrightness = 0.1
+    baselayer.defaultBrightness = 0.05
     viewer.addBaseLayer(baselayer)
     let globeRotate = new DC.GlobeRotate(viewer,{
       duration:5,

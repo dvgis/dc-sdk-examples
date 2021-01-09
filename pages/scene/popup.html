@@ -14,8 +14,8 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style: 'dark'
     })
     viewer.addBaseLayer(baselayer)
     viewer.popup.config = {

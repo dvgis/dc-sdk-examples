@@ -4,11 +4,11 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    viewer.setOptions({
+      globe:{
+        baseColor:DC.Color.BLACK
+      }
     })
-    baselayer.defaultBrightness = 0.1
-    viewer.addBaseLayer(baselayer)
     let layer_build = new DC.TilesetLayer('layer_build').addTo(viewer)
     let build = new DC.Tileset(
       'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json',
@@ -32,11 +32,11 @@
     layer_build.addOverlay(build)
     let layer = new DC.PrimitiveLayer('layer').addTo(viewer)
     let center = DC.Position.fromObject({lng: 121.49536592256028, lat: 31.241616722278213})
-    let lineScan= new DC.LineScanPrimitive(center,3000)
-    lineScan.setStyle({
-      color:new DC.Color(0.2,  0.5, 1.0, 1.0)
+    let scanCircle= new DC.ScanCirclePrimitive(center,3000)
+    scanCircle.setStyle({
+      color:DC.Color.YELLOW
     })
-    layer.addOverlay(lineScan)
+    layer.addOverlay(scanCircle)
 
     viewer.flyToPosition("121.4941629,31.2091462,1859.56,0,-28.71")
   }

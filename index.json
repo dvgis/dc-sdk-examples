@@ -310,8 +310,13 @@
               "suffix": "gif"
             },
             {
-              "name": "line_scan",
-              "label": "线扫描",
+              "name": "scan_circle",
+              "label": "扫描圆",
+              "suffix": "gif"
+            },
+            {
+              "name": "elec_ellipsoid",
+              "label": "电弧球体",
               "suffix": "gif"
             }
           ]

@@ -3,10 +3,11 @@
   let viewer = undefined
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    viewer.setOptions({
+      globe:{
+        baseColor:DC.Color.BLACK
+      }
     })
-    viewer.addBaseLayer(baselayer)
   }
   DC.ready(initViewer)
 </script>

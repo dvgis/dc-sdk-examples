@@ -4,20 +4,15 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    // let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-    //   style: 'img'
-    // })
-    // baselayer.defaultBrightness = 0.1
-    // viewer.addBaseLayer(baselayer)
     viewer.setOptions({
       globe:{
         baseColor:DC.Color.BLACK
       }
     })
-    let layer = new DC.TilesetLayer('layer')
-    viewer.addLayer(layer)
-    let tileset = new DC.Tileset(
-      'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json'
+    let layer_build = new DC.TilesetLayer('layer_build').addTo(viewer)
+    let build = new DC.Tileset(
+      'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json',
+      {skipLevels:true}
     )
     let fs = `
        varying vec3 v_positionEC;
@@ -33,9 +28,16 @@
            gl_FragColor.rgb += gl_FragColor.rgb * (1.0 - diff);
        }
       `
-    tileset.setCustomShader(fs)
-    layer.addOverlay(tileset)
-    viewer.flyTo(tileset)
+    build.setCustomShader(fs)
+    layer_build.addOverlay(build)
+    let layer = new DC.PrimitiveLayer('layer').addTo(viewer)
+    let center = DC.Position.fromObject({lng: 121.49536592256028, lat: 31.241616722278213})
+    let elecEllipsoid= new DC.ElecEllipsoidPrimitive(center,{x:1000,y:1000,z:1000})
+    elecEllipsoid.setStyle({
+      color: DC.Color.GREEN
+    })
+    layer.addOverlay(elecEllipsoid)
+    viewer.flyToPosition("121.4941629,31.2091462,1859.56,0,-28.71")
   }
   DC.ready(initViewer)
 </script>

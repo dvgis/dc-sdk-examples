@@ -13,13 +13,13 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style: 'dark'
     })
     viewer.addBaseLayer(baselayer)
     viewer.hawkeyeMap.enable = true
     viewer.hawkeyeMap.addBaseLayer(
-      DC.ImageryLayerFactory.createGoogleImageryLayer()
+      DC.ImageryLayerFactory.createBaiduImageryLayer()
     )
   }
   DC.ready(initViewer)

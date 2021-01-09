@@ -3,14 +3,12 @@
   let viewer = undefined
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    let key = '1c3ff1358b17417f1782dd1ae7bdd00a'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
       style: 'img'
     })
-    viewer.addBaseLayer(baselayer, {
-      iconUrl: 'examples/images/icon/img.png',
-      name: '地图'
-    })
-
+    viewer.addBaseLayer(baselayer)
     let terrain = DC.TerrainFactory.createArcgisTerrain({
       url:
         'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer'

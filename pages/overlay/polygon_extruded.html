@@ -4,13 +4,12 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style: 'midnight'
     })
     viewer.addBaseLayer(baselayer)
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)
-
     let polygon = new DC.Polygon('-108.0, 42.0; -100.0, 42.0;-104.0, 40.0')
     polygon.setStyle({
       extrudedHeight: 500000.0,

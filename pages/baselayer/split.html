@@ -12,15 +12,15 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    let key = '1c3ff1358b17417f1782dd1ae7bdd00a'
+    let img = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
       style: 'img'
     })
-    viewer.addBaseLayer(baselayer, {
-      iconUrl: 'examples/images/icon/img.png',
-      name: '地图'
+    viewer.addBaseLayer(img)
+    let baselayer_elc =DC.ImageryLayerFactory.createTdtImageryLayer({
+      key
     })
-    let baselayer_elc = DC.ImageryLayerFactory.createGoogleImageryLayer()
     viewer.mapSplit.enable = true
     viewer.mapSplit.addBaseLayer(baselayer_elc)
   }
