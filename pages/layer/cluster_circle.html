@@ -14,11 +14,8 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    viewer.setOptions({
-      globe:{
-        baseColor:DC.Color.BLACK
-      }
-    })
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer()
+    viewer.addBaseLayer(baselayer)
     let layer = new DC.ClusterLayer('layer')
     viewer.addLayer(layer)
     let positions = generatePosition(10000)

@@ -1,0 +1,70 @@
+<div id="viewer-container">
+  <div class="btn-box">
+    <ul>
+      <li><input type="checkbox" name="check_loop" /> 是否循环 </li>
+      <li><button onclick="start()">开始</button></li>
+      <li><button onclick="pause()">暂停</button></li>
+      <li><button onclick="restore()">继续</button></li>
+    </ul>
+  </div>
+</div>
+<script>
+  let viewer = undefined
+  let flying = undefined
+
+  function start(){
+    let checked = document.getElementsByName('check_loop')[0].checked
+    flying = new DC.Flying(viewer,{
+      loop: checked
+    })
+    flying.positions =  [
+      {lng: 121.46748793889597, lat: 31.22345700031846, alt: 1082.6691622203975, heading: 0.9161118327237789, pitch: -38.63414039808751},
+      {lng: 121.49543157056694, lat: 31.219611353179484, alt: 663.5376240776116, heading: 0.9161124649627334, pitch: -38.63418986635751},
+      {lng: 121.53162234574106, lat: 31.228003869427294, alt: 1891.926162456467, heading: 298.6565902579582, pitch: -33.67285705092492},
+      {lng: 121.54438164431083, lat: 31.25201585389836,  alt: 1441.4625182144541, heading: 298.65660919687264, pitch: -33.6728415156399}
+    ]
+    flying.start()
+  }
+
+  function pause(){
+    flying.pause()
+  }
+
+  function restore(){
+    flying.restore()
+  }
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let key = '1c3ff1358b17417f1782dd1ae7bdd00a'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
+      style: 'img'
+    })
+    baselayer.defaultBrightness = 0.1
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.TilesetLayer('layer').addTo(viewer)
+    let tileset = new DC.Tileset(
+      'http://resource.dvgis.cn/data/3dtiles/ljz/tileset.json'
+    )
+    let fs = `
+       varying vec3 v_positionEC;
+       void main(void){
+           vec4 position = czm_inverseModelView * vec4(v_positionEC,1); // 位置
+           float glowRange = 100.0; // 光环的移动范围(高度)
+           gl_FragColor = vec4(0.6,  0.6, 0.6, 1.0); // 颜色
+           gl_FragColor *= vec4(vec3(position.z / 100.0), 1.0); // 渐变
+           // 动态光环
+           float time = fract(czm_frameNumber / 360.0);
+           time = abs(time - 0.5) * 2.0;
+           float diff = step(0.005, abs( clamp(position.z / glowRange, 0.0, 1.0) - time));
+           gl_FragColor.rgb += gl_FragColor.rgb * (1.0 - diff);
+       }
+      `
+    tileset.setCustomShader(fs)
+    layer.addOverlay(tileset)
+
+    viewer.flyTo(tileset)
+  }
+  DC.ready(initViewer)
+</script>

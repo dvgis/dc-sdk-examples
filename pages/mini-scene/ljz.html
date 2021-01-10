@@ -44,7 +44,7 @@
  }
 
   function loadParabola(){
-    let layer = new DC.VectorLayer('line_layer')
+    let layer = new DC.PrimitiveLayer('line_layer')
     viewer.addLayer(layer)
     let center = DC.Position.fromObject({lng: 121.49536592256028, lat: 31.241616722278213})
     let positions = [
@@ -65,20 +65,17 @@
       {lng: 121.4948618756933, lat: 31.22694576870397},
       {lng: 121.49695060106232, lat: 31.275195479192174}].map(item=> DC.Position.fromObject(item))
     positions.forEach(item => {
-      let line = new DC.Polyline(DC.Math.parabola(center,item,500))
+      let line = new DC.FlowLinePrimitive(DC.Math.parabola(center,item,500),3)
       line.setStyle({
-        width:3,
-        material:new  DC.PolylineFlowMaterialProperty({
           speed: 5 * Math.random(),
           color: new DC.Color(0.5, 0.8, 1.0, 1.0)
-        })
       })
       layer.addOverlay(line)
     })
   }
 
   function loadVLine (){
-    let layer = new DC.VectorLayer('vLine_layer')
+    let layer = new DC.PrimitiveLayer('vLine_layer')
     viewer.addLayer(layer)
     let positions =[
     {lng: 121.47345213010999, lat: 31.255897743532817},
@@ -94,13 +91,10 @@
      let position = DC.Position.fromObject(item)
      let end = position.copy()
      end.alt = 1000 * Math.random()
-     let line = new DC.Polyline([position,end])
+     let line = new DC.FlowLinePrimitive([position,end],3)
      line.setStyle({
-       width:3,
-       material:new  DC.PolylineFlowMaterialProperty({
-         speed: 5,
-         color: new DC.Color(0.5, 0.8, 1.0, 1.0)
-       })
+       speed: 5,
+       color: new DC.Color(0.5, 0.8, 1.0, 1.0)
      })
      layer.addOverlay(line)
    })

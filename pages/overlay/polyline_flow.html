@@ -16,8 +16,8 @@
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)
 
-    let polyline = new DC.Polyline('-75, 35; -90, 35').setStyle({
-      width: 3,
+    let polyline = new DC.Polyline('-75, 35; -80, 35').setStyle({
+      width: 5,
       material: new DC.PolylineFlowMaterialProperty({
         color: DC.Color.RED,
         speed: 5
@@ -25,15 +25,34 @@
       clampToGround: true
     })
 
-    let polyline1 = new DC.Polyline('-75, 35; -75, 20').setStyle({
-      width: 3,
+    let polyline1 = new DC.Polyline(' -75, 30;-75, 35').setStyle({
+      width: 5,
       material: new DC.PolylineFlowMaterialProperty({
         color: DC.Color.ORANGE,
         speed: 5
       }),
       clampToGround: true
     })
-    layer.addOverlay(polyline).addOverlay(polyline1)
+
+    let polyline2 = new DC.Polyline('-80, 35; -80, 30').setStyle({
+      width: 5,
+      material: new DC.PolylineFlowMaterialProperty({
+        color: DC.Color.YELLOW,
+        speed: 10
+      }),
+      clampToGround: true
+    })
+
+    let polyline3 = new DC.Polyline('-80, 30; -75, 30').setStyle({
+      width: 5,
+      material: new DC.PolylineFlowMaterialProperty({
+        color: DC.Color.GREEN,
+        speed: 10
+      }),
+      clampToGround: true
+    })
+
+    layer.addOverlay(polyline).addOverlay(polyline1).addOverlay(polyline2).addOverlay(polyline3)
     viewer.flyTo(layer)
   }
   DC.ready(initViewer)

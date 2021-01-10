@@ -491,6 +491,12 @@
               "suffix": "gif"
             },
             {
+              "name": "flying",
+              "label": "定点巡航",
+              "isPlugin": true,
+              "suffix": "gif"
+            },
+            {
               "name": "around_view",
               "label": "绕地环绕",
               "isPlugin": true,
