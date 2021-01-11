@@ -223,6 +223,12 @@
               "label": "流动线",
               "isPlugin": true,
               "suffix": "gif"
+            },
+            {
+              "name": "polyline_flicker",
+              "label": "闪烁线",
+              "isPlugin": true,
+              "suffix": "gif"
             }
           ]
         },

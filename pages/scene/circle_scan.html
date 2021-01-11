@@ -21,10 +21,15 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container').setOptions({
       globe: {
-        baseColor:DC.Color.BLACK,
         depthTestAgainstTerrain: true // 当前示例中的Shader渲染需要开启深度检测，并在无地形时效果好些。
       }
     })
+    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
     let layer = new DC.TilesetLayer('layer')
     viewer.addLayer(layer)
     let style = new DC.TilesetStyle()

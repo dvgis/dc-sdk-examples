@@ -16,34 +16,34 @@
 
     let polyline = new DC.Polyline('-75, 35; -80, 35').setStyle({
       width: 5,
-      material: new DC.PolylineFlowMaterialProperty({
+      material: new DC.PolylineFlickerMaterialProperty({
         color: DC.Color.RED,
-        speed: 5
+        speed: 4
       }),
       clampToGround: true
     })
 
     let polyline1 = new DC.Polyline(' -75, 30;-75, 35').setStyle({
       width: 5,
-      material: new DC.PolylineFlowMaterialProperty({
+      material: new DC.PolylineFlickerMaterialProperty({
         color: DC.Color.ORANGE,
-        speed: 5
+        speed: 6
       }),
       clampToGround: true
     })
 
     let polyline2 = new DC.Polyline('-80, 35; -80, 30').setStyle({
       width: 5,
-      material: new DC.PolylineFlowMaterialProperty({
+      material: new DC.PolylineFlickerMaterialProperty({
         color: DC.Color.YELLOW,
-        speed: 10
+        speed: 8
       }),
       clampToGround: true
     })
 
     let polyline3 = new DC.Polyline('-80, 30; -75, 30').setStyle({
       width: 5,
-      material: new DC.PolylineFlowMaterialProperty({
+      material: new DC.PolylineFlickerMaterialProperty({
         color: DC.Color.GREEN,
         speed: 10
       }),

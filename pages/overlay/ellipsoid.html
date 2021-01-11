@@ -4,13 +4,15 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
+
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)
-
 
     let saturn= new DC.Ellipsoid('-95.0,45.0,300000.0',{x:200000.0, y:200000.0, z:200000.0}).setStyle({
       material: new DC.Color(0.95, 0.82, 0.49)

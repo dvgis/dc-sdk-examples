@@ -3,23 +3,17 @@
   let viewer = undefined
 
   function initViewer() {
+    const {Cesium} = DC.Namespace
     viewer = new DC.Viewer('viewer-container', {
       sceneMode: DC.SceneMode.SCENE2D
     })
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
       style: 'img'
     })
-
     viewer.addBaseLayer(baselayer)
-    // let layer = new DC.GeoJsonLayer(
-    //   'layer',
-    //   'examples/data/simplestyles.geojson'
-    // )
-    // viewer.addLayer(layer)
-    // viewer.flyTo(layer)
-    const {Cesium} = DC.Namespace
-
-    viewer.delegate.dataSources.add(
+    viewer.dataSources.add(
       Cesium.GeoJsonDataSource.load(
         "examples/data/ne_10m_us_states.topojson",
         {

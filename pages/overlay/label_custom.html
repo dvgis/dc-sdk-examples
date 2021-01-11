@@ -13,7 +13,9 @@
   }
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
+    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)

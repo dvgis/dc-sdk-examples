@@ -4,16 +4,13 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    // let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer({
-    //   style: 'img'
-    // })
-    // baselayer.defaultBrightness = 0.1
-    // viewer.addBaseLayer(baselayer)
-    viewer.setOptions({
-      globe:{
-        baseColor:DC.Color.BLACK
-      }
+    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
+      style: 'img'
     })
+    baselayer.defaultBrightness = 0.1
+    viewer.addBaseLayer(baselayer)
     let layer = new DC.TilesetLayer('layer')
     viewer.addLayer(layer)
     let tileset = new DC.Tileset(
