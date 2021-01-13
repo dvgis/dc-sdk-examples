@@ -60,6 +60,8 @@ body,
 .btn-box ul li {
   display: inline-block;
 }
+
+
 .btn-box ul li button {
   width: 60px;
   height: 30px;
@@ -72,4 +74,14 @@ body,
   outline: none;
 }
 
+.sz-container{
+  background-image: url("../images/bg/bg_xk.jpg");
+}
+
+
+@media (max-width: 768px) {
+  .btn-box,.check-wrapper{
+    left: 20px !important;
+  }
+}
 

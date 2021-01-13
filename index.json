@@ -5,6 +5,11 @@
       "label": "微场景",
       "examples": [
         {
+          "name": "china",
+          "label": "大中国",
+          "suffix": "gif"
+        },
+        {
           "name": "ljz",
           "label": "陆家嘴",
           "suffix": "gif"
@@ -12,6 +17,11 @@
         {
           "name": "factory",
           "label": "数字工厂",
+          "suffix": "gif"
+        },
+        {
+          "name": "sz",
+          "label": "苏州",
           "suffix": "gif"
         }
       ]
