@@ -23,6 +23,11 @@
           "name": "sz",
           "label": "苏州",
           "suffix": "gif"
+        },
+        {
+          "name": "dfmz",
+          "label": "东方明珠",
+          "suffix": "gif"
         }
       ]
     },

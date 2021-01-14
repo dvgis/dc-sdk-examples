@@ -4,7 +4,6 @@
   let szData = undefined
   let sz_out_data = undefined
 
-
   let sz_zxd_data =[
     {
       label:"姑苏区",
@@ -83,7 +82,6 @@
     szData = new DC.GeoJsonLayer('sz','examples/data/sz.geojson')
     sz_out_data = new DC.GeoJsonLayer('sz-out','examples/data/sz_out.geojson')
   }
-
 
   function  loadSzZxd(){
     let layer_sz_zxd = new DC.VectorLayer('layer-sz-zxd').addTo(viewer)

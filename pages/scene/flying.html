@@ -15,7 +15,8 @@
   function start(){
     let checked = document.getElementsByName('check_loop')[0].checked
     flying = new DC.Flying(viewer,{
-      loop: checked
+      loop: checked,
+      dwellTime:3,
     })
     flying.positions =  [
       {lng: 121.46748793889597, lat: 31.22345700031846, alt: 1082.6691622203975, heading: 0.9161118327237789, pitch: -38.63414039808751},
