@@ -3,10 +3,10 @@
   let viewer = undefined
 
   function generatePosition(num) {
-    var list = []
-    for (var i = 0; i < num; i++) {
-      var lng = 120.38105869 + Math.random() * 0.5
-      var lat = 31.10115627 + Math.random() * 0.5
+    let list = []
+    for (let i = 0; i < num; i++) {
+      let lng = 120.38105869 + Math.random() * 0.5
+      let lat = 31.10115627 + Math.random() * 0.5
       list.push(new DC.Position(lng, lat))
     }
     return list
@@ -28,9 +28,8 @@
       )
       layer.addOverlay(divIcon)
     })
-
     viewer.flyToPosition(
-      new DC.Position(120.38105869, 31.10115627, 10000, 0, -90)
+      new DC.Position(120.472147621, 30.61004946, 65380.21, 14.0,  -40.94)
     )
   }
   DC.ready(initViewer)
