@@ -10,23 +10,23 @@
           "suffix": "gif"
         },
         {
-          "name": "ljz",
-          "label": "陆家嘴",
-          "suffix": "gif"
-        },
-        {
-          "name": "factory",
-          "label": "数字工厂",
-          "suffix": "gif"
-        },
-        {
           "name": "sz",
           "label": "苏州",
           "suffix": "gif"
         },
         {
+          "name": "ljz",
+          "label": "陆家嘴",
+          "suffix": "gif"
+        },
+        {
           "name": "dfmz",
           "label": "东方明珠",
+          "suffix": "gif"
+        },
+        {
+          "name": "factory",
+          "label": "数字工厂",
           "suffix": "gif"
         }
       ]
@@ -173,7 +173,6 @@
         {
           "name": "czml",
           "label": "Czml图层",
-          "isPlugin": true,
           "suffix": "gif"
         }
 

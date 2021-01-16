@@ -116,6 +116,9 @@
     })
     baselayer.defaultBrightness = 0.05
     viewer.addBaseLayer(baselayer)
+    viewer.setOptions({
+      enableFxaa:true
+    })
     viewer.use(new DC.Effect())
     viewer.effect.bloom.enable = true
     viewer.flyToPosition("121.49437363,31.2070558,2705.19,0.6,-43.06",()=>{

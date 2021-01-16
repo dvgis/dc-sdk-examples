@@ -73,6 +73,19 @@
     })
   }
 
+
+
+  function loadCircle(){
+    let layer_circle = new DC.PrimitiveLayer('layer-circle').addTo(viewer)
+    let circle= new DC.ScanCirclePrimitive("121.49536592256028,31.241616722278213",5000)
+    circle.setStyle({
+      speed: 6 ,
+      color: new DC.Color(0.5, 0.8, 1.0, 1.0)
+    })
+    layer_circle.addOverlay(circle)
+
+  }
+
   function loadVLine (){
     let layer = new DC.PrimitiveLayer('vLine_layer')
     viewer.addLayer(layer)
@@ -107,14 +120,20 @@
       style: 'img'
     })
     baselayer.defaultBrightness = 0.05
+    viewer.setOptions({
+      enableFxaa:true
+    })
     viewer.addBaseLayer(baselayer)
+    viewer.use(new DC.Effect())
+    viewer.effect.bloom.enable = true
     let globeRotate = new DC.GlobeRotate(viewer,{
       duration:5,
       callback:()=>{
-        viewer.flyToPosition("121.4941629,31.2091462,1859.56,0,-28.71",()=>{
+        viewer.flyToPosition("121.50995868,31.20091392,4405.64,344.2,-46.66",()=>{
           loadBuild()
           loadRoad()
           loadParabola()
+          loadCircle()
           loadVLine()
         })
       }
