@@ -3,10 +3,10 @@
   let viewer = undefined
 
   function generatePosition(num) {
-    var list = []
-    for (var i = 0; i < num; i++) {
-      var lng = 120.38105869 + Math.random() * 0.5
-      var lat = 31.10115627 + Math.random() * 0.5
+    let list = []
+    for (let i = 0; i < num; i++) {
+      let lng = 120.38105869 + Math.random() * 0.5
+      let lat = 31.10115627 + Math.random() * 0.5
       list.push(new DC.Position(lng, lat))
     }
     return list
@@ -14,7 +14,11 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createGoogleImageryLayer()
+    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
+      style: 'vec'
+    })
     viewer.addBaseLayer(baselayer)
     let layer = new DC.HeatLayer('layer')
     viewer.addLayer(layer)

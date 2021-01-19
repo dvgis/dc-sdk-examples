@@ -10,8 +10,8 @@
           "suffix": "gif"
         },
         {
-          "name": "sz",
-          "label": "苏州",
+          "name": "sz_out",
+          "label": "苏州轮廓",
           "suffix": "gif"
         },
         {
@@ -406,12 +406,20 @@
           "label": "基础设置",
           "examples": [
             {
-              "name": "2D",
-              "label": "2D模式"
+              "name": "mode",
+              "label": "场景模式"
+            },
+            {
+              "name": "setting",
+              "label": "场景设置"
             },
             {
               "name": "globe",
-              "label": "地球隐藏"
+              "label": "地球设置"
+            },
+            {
+              "name": "atmosphere",
+              "label": "大气设置"
             },
             {
               "name": "background",
@@ -682,6 +690,12 @@
             {
               "name": "heat",
               "label": "热区图层",
+              "isPlugin": true,
+              "suffix": "gif"
+            },
+            {
+              "name": "wind",
+              "label": "风向图层",
               "isPlugin": true,
               "suffix": "gif"
             }

@@ -1,0 +1,43 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    let controls = {
+      enableFxaa:false,
+      showSkyBox:true,
+      showSun:true,
+      showMoon:true
+    }
+    let gui = new dat.GUI()
+    gui.add(controls,'enableFxaa').onChange(value=>{
+      viewer.setOptions({
+        enableFxaa:value
+      })
+    })
+
+    gui.add(controls,'showSkyBox').onChange(value=>{
+      viewer.setOptions({
+        showSkyBox:value
+      })
+    })
+
+    gui.add(controls,'showSun').onChange(value=>{
+      viewer.setOptions({
+        showSun:value
+      })
+    })
+
+    gui.add(controls,'showMoon').onChange(value=>{
+      viewer.setOptions({
+        showMoon:value
+      })
+    })
+  }
+  DC.ready(initViewer)
+</script>

@@ -1,0 +1,23 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let controls = {
+      show:true,
+    }
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    let gui = new dat.GUI()
+    gui.add(controls,'show').onChange(value=>{
+      viewer.setOptions({
+        showAtmosphere : value
+      })
+    })
+
+  }
+  DC.ready(initViewer)
+</script>

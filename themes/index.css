@@ -83,5 +83,8 @@ body,
   .btn-box,.check-wrapper{
     left: 20px !important;
   }
+  .dg.ac{
+    display: none;
+  }
 }
 

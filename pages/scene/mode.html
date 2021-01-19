@@ -3,13 +3,19 @@
   let viewer = undefined
 
   function initViewer() {
-    viewer = new DC.Viewer('viewer-container', {
-      sceneMode: 2
-    })
+    viewer = new DC.Viewer('viewer-container')
     let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
+
+    let controls = {
+       mode:3
+    }
+    let gui = new dat.GUI()
+    gui.add(controls,'mode',{'2D':2,'2.5D':2.5,'3D':3}).onChange(value=>{
+      viewer.changeSceneMode(Number(value),2)
+    })
   }
   DC.ready(initViewer)
 </script>

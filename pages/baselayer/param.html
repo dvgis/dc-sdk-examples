@@ -6,12 +6,27 @@
     let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
       style: 'midnight'
     })
-    baselayer.defaultAlpha = 1 //透明度 0~1
-    baselayer.defaultBrightness = 2 //亮度 1为界点
-    baselayer.defaultContrast = 1 //对比度  1为界点
-    baselayer.defaultGamma = undefined //伽马强度
-    baselayer.defaultSaturation = undefined // 饱和度
+    let controls = {
+      alpha :1,
+      brightness : 1,
+      contrast:1,
+      saturation:1
+    }
     viewer.addBaseLayer(baselayer)
+    let imageryLayer = viewer.imageryLayers.get(0)
+    let gui = new dat.GUI();
+    gui.add(controls,'alpha',0,1).step(0.1).onChange(value=>{
+      imageryLayer.alpha = value
+    })
+    gui.add(controls,'brightness',-1,5).step(0.1).onChange(value=>{
+      imageryLayer.brightness = value
+    })
+    gui.add(controls,'contrast',-1,3).step(0.1).onChange(value=>{
+      imageryLayer.contrast = value
+    })
+    gui.add(controls,'saturation',0,2).step(0.1).onChange(value=>{
+      imageryLayer.saturation = value
+    })
   }
   DC.ready(initViewer)
 </script>
