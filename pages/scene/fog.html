@@ -18,6 +18,24 @@
     layer.addOverlay(tileset)
     viewer.use(new DC.Weather())
     viewer.weather.fog.enable = true
+    let controls = {
+      enable: true,
+      far:2000,
+      color: "#000000",
+    }
+    let gui = new dat.GUI();
+    gui.add(controls,'enable').onChange(value=>{
+      viewer.weather.fog.enable = value
+    })
+
+    gui.add(controls,'far',0,20000).step(100).onChange(value=>{
+      viewer.weather.fog.fogByDistance = {
+        far : value
+      }
+    })
+    gui.addColor(controls,'color').onChange(value=>{
+      viewer.weather.fog.fogColor = DC.Color.fromCssColorString(value)
+    })
     viewer.flyTo(tileset)
   }
   DC.ready(initViewer)

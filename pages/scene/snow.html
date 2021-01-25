@@ -10,6 +10,18 @@
     viewer.addBaseLayer(baselayer_midnight)
     viewer.use(new DC.Weather())
     viewer.weather.snow.enable = true
+    let controls = {
+      enable: true,
+      speed : 2,
+    }
+    let gui = new dat.GUI();
+    gui.add(controls,'enable').onChange(value=>{
+      viewer.weather.snow.enable = value
+    })
+
+    gui.add(controls,'speed',1,10).step(2).onChange(value=>{
+      viewer.weather.snow.speed = value
+    })
 
   }
   DC.ready(initViewer)
