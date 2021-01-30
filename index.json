@@ -313,6 +313,16 @@
               "name": "elec_ellipsoid",
               "label": "电弧球体",
               "suffix": "gif"
+            },
+            {
+              "name": "parabola",
+              "label": "抛物流动线",
+              "suffix": "gif"
+            },
+            {
+              "name": "v_line",
+              "label": "飞线",
+              "suffix": "gif"
             }
           ]
         },
