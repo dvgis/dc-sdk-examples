@@ -8,9 +8,12 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
+    addGuiController() // add controller
+  }
 
+  function addGuiController(){
     let controls = {
-       mode:3
+      mode:3
     }
     let gui = new dat.GUI()
     gui.add(controls,'mode',{'2D':2,'2.5D':2.5,'3D':3}).onChange(value=>{

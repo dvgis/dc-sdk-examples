@@ -4,6 +4,10 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
+    addGuiController() // add controller
+  }
+
+  function addGuiController(){
     let controls = {
       show:true,
       baseColor: "#00007F",

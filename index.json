@@ -124,7 +124,7 @@
         },
         {
           "name": "ter",
-          "label": "地形",
+          "label": "地形叠加",
           "examples": [
             {
               "name": "ter_ch",
@@ -184,7 +184,7 @@
       "children": [
         {
           "name": "point",
-          "label": "点要素",
+          "label": "点位要素",
           "examples": [
             {
               "name": "point_base",
@@ -270,7 +270,7 @@
         },
         {
           "name": "circle",
-          "label": "圆要素",
+          "label": "圆形要素",
           "examples": [
             {
               "name": "circle",
@@ -292,6 +292,27 @@
               "label": "圆(逐渐消逝)",
               "suffix": "gif",
               "isPlugin": true
+            }
+          ]
+        },
+        {
+          "name": "primitive",
+          "label": "图元要素",
+          "examples": [
+            {
+              "name": "water",
+              "label": "流动水面",
+              "suffix": "gif"
+            },
+            {
+              "name": "scan_circle",
+              "label": "扫描圆",
+              "suffix": "gif"
+            },
+            {
+              "name": "elec_ellipsoid",
+              "label": "电弧球体",
+              "suffix": "gif"
             }
           ]
         },
@@ -323,27 +344,12 @@
             {
               "name": "ellipsoid",
               "label": "球体"
-            },
-            {
-              "name": "water",
-              "label": "流动水面",
-              "suffix": "gif"
-            },
-            {
-              "name": "scan_circle",
-              "label": "扫描圆",
-              "suffix": "gif"
-            },
-            {
-              "name": "elec_ellipsoid",
-              "label": "电弧球体",
-              "suffix": "gif"
             }
           ]
         },
         {
           "name": "plot",
-          "label": "标绘",
+          "label": "标绘要素",
           "examples": [
             {
               "name": "plot-overlay",
@@ -359,7 +365,7 @@
       "children": [
         {
           "name": "gltf",
-          "label": "小模型",
+          "label": "基础模型",
           "examples": [
             {
               "name": "model_pm",
@@ -374,7 +380,7 @@
         },
         {
           "name": "3dtiles",
-          "label": "大场景模型",
+          "label": "场景模型",
           "examples": [
             {
               "name": "shp",
@@ -565,8 +571,28 @@
               "isPlugin": true
             },
             {
+              "name": "depth_of_field",
+              "label": "景深",
+              "isPlugin": true
+            },
+            {
+              "name": "silhouette",
+              "label": "轮廓",
+              "isPlugin": true
+            },
+            {
+              "name": "black_and_white",
+              "label": "黑白",
+              "isPlugin": true
+            },
+            {
               "name": "night_vision",
               "label": "夜视场景",
+              "isPlugin": true
+            },
+            {
+              "name": "lens_flare",
+              "label": "镜头耀斑",
               "isPlugin": true
             }
           ]

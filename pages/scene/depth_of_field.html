@@ -9,37 +9,33 @@
     })
     viewer.addBaseLayer(baselayer_midnight)
     viewer.use(new DC.Effect())
-    viewer.effect.bloom.enable= true
+    viewer.effect.depthOfField.enable= true
     addGuiController() // add controller
   }
 
   function addGuiController(){
     let controls = {
       enable:true,
-      contrast: 128,
-      brightness: -0.3,
+      focalDistance: 87,
       delta: 1,
       sigma: 3.8,
-      stepSize: 5,
+      stepSize: 2.5,
     }
     let gui = new dat.GUI()
     gui.add(controls,'enable').onChange(value=>{
-      viewer.effect.bloom.enable=value
+      viewer.effect.depthOfField.enable=value
     })
-    gui.add(controls,'contrast',0,255).step(1).onChange(value=>{
-      viewer.effect.bloom.contrast=value
-    })
-    gui.add(controls,'brightness',-5,5).step(0.1).onChange(value=>{
-      viewer.effect.bloom.brightness=value
+    gui.add(controls,'focalDistance',0,1000).step(1).onChange(value=>{
+      viewer.effect.depthOfField.focalDistance=value
     })
     gui.add(controls,'delta',0,5).step(0.1).onChange(value=>{
-      viewer.effect.bloom.delta=value
+      viewer.effect.depthOfField.delta=value
     })
     gui.add(controls,'sigma',0,5).step(0.1).onChange(value=>{
-      viewer.effect.bloom.delta=value
+      viewer.effect.depthOfField.delta=value
     })
     gui.add(controls,'stepSize',0,10).step(0.1).onChange(value=>{
-      viewer.effect.bloom.delta=value
+      viewer.effect.depthOfField.delta=value
     })
   }
   DC.ready(initViewer)

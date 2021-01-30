@@ -78,6 +78,17 @@ body,
   background-image: url("../images/bg/bg_xk.jpg");
 }
 
+.dg.ac{
+  left: 90px !important;
+  top:20px;
+  right: unset;
+}
+
+.dg.main{
+  border-top: 1px solid  #9d9c9c;
+  border-right: 1px solid #9d9c9c;
+}
+
 
 @media (max-width: 768px) {
   .btn-box,.check-wrapper{

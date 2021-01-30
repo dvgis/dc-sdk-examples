@@ -8,23 +8,26 @@
       style: 'midnight'
     })
     viewer.addBaseLayer(baselayer_midnight)
-    viewer.use(new DC.Weather())
-    viewer.weather.snow.enable = true
+    viewer.use(new DC.Effect())
+    viewer.effect.silhouette.enable= true
     addGuiController() // add controller
   }
 
   function addGuiController(){
     let controls = {
-      enable: true,
-      speed : 2,
+      enable:true,
+      color: '#00ff00',
+      length: 0.5,
     }
-    let gui = new dat.GUI();
+    let gui = new dat.GUI()
     gui.add(controls,'enable').onChange(value=>{
-      viewer.weather.snow.enable = value
+      viewer.effect.silhouette.enable=value
     })
-
-    gui.add(controls,'speed',1,10).step(2).onChange(value=>{
-      viewer.weather.snow.speed = value
+    gui.addColor(controls,'color').onChange(value=>{
+      viewer.effect.silhouette.color= DC.Color.fromCssColorString(value)
+    })
+    gui.add(controls,'length',0,5).step(0.1).onChange(value=>{
+      viewer.effect.silhouette.length=value
     })
 
   }

@@ -13,6 +13,10 @@
     viewer.use(new DC.Weather())
     viewer.weather.cloud.enable = true
     viewer.weather.cloud.rotateAmount=0.02
+    addGuiController() // add controller
+  }
+
+  function addGuiController(){
     let controls = {
       enable: true,
       rotateAmount : 0.02,

@@ -1,18 +1,23 @@
 <div id="viewer-container"></div>
 <script>
   let viewer = undefined
+
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
     let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
       style: 'midnight'
     })
+    viewer.addBaseLayer(baselayer)
+    addGuiController() // add controller
+  }
+
+  function addGuiController(){
     let controls = {
       alpha :1,
       brightness : 1,
       contrast:1,
       saturation:1
     }
-    viewer.addBaseLayer(baselayer)
     let imageryLayer = viewer.imageryLayers.get(0)
     let gui = new dat.GUI();
     gui.add(controls,'alpha',0,1).step(0.1).onChange(value=>{
@@ -28,5 +33,6 @@
       imageryLayer.saturation = value
     })
   }
+
   DC.ready(initViewer)
 </script>

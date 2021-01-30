@@ -1,0 +1,43 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer_midnight = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style: 'midnight'
+    })
+    viewer.addBaseLayer(baselayer_midnight)
+    viewer.use(new DC.Effect())
+    viewer.effect.lensFlare.enable= true
+    addGuiController() // add controller
+  }
+
+  function addGuiController(){
+    let controls = {
+      enable: true,
+      intensity: 2,
+      distortion: 10,
+      dirtAmount: 0.4,
+      haloWidth: 0.4,
+    }
+    let gui = new dat.GUI()
+    gui.add(controls,'enable').onChange(value=>{
+      viewer.effect.lensFlare.enable=value
+    })
+
+    gui.add(controls,'intensity',0,10).step(0.1).onChange(value=>{
+      viewer.effect.lensFlare.intensity=value
+    })
+    gui.add(controls,'distortion',0,100).step(1).onChange(value=>{
+      viewer.effect.lensFlare.delta=value
+    })
+    gui.add(controls,'dirtAmount',0,10).step(0.01).onChange(value=>{
+      viewer.effect.lensFlare.dirtAmount=value
+    })
+    gui.add(controls,'haloWidth',0,10).step(0.01).onChange(value=>{
+      viewer.effect.lensFlare.haloWidth=value
+    })
+  }
+  DC.ready(initViewer)
+</script>

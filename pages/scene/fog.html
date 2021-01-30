@@ -18,6 +18,12 @@
     layer.addOverlay(tileset)
     viewer.use(new DC.Weather())
     viewer.weather.fog.enable = true
+    viewer.flyTo(tileset)
+    addGuiController() // add controller
+
+  }
+
+  function addGuiController(){
     let controls = {
       enable: true,
       far:2000,
@@ -34,9 +40,9 @@
       }
     })
     gui.addColor(controls,'color').onChange(value=>{
-      viewer.weather.fog.fogColor = DC.Color.fromCssColorString(value)
+      viewer.weather.fog.color = DC.Color.fromCssColorString(value)
     })
-    viewer.flyTo(tileset)
   }
+
   DC.ready(initViewer)
 </script>

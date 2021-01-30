@@ -1,7 +1,4 @@
 <div id="viewer-container"></div>
-<div class="check-wrapper">
-  <input type="checkbox" name="check_enable" checked="true" onclick="changeEnable(this.checked)" /> 是否启用
-</div>
 
 <script>
   let viewer = undefined
@@ -23,6 +20,18 @@
     })
     viewer.mapSplit.enable = true
     viewer.mapSplit.addBaseLayer(baselayer_elc)
+    addGuiController() // add controller
   }
+
+  function addGuiController(){
+    let controls = {
+      enable :true,
+    }
+    let gui = new dat.GUI();
+    gui.add(controls,'enable',).onChange(value=>{
+      viewer.mapSplit.enable = value
+    })
+  }
+
   DC.ready(initViewer)
 </script>
