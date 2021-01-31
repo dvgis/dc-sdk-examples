@@ -1,0 +1,36 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer(
+      {
+        crs:'WGS84'
+      }
+    )
+    viewer.addBaseLayer(baselayer, {
+      iconUrl: 'examples/images/icon/elec.png',
+      name: '电子'
+    })
+
+    let baselayer_img = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img',
+      crs:'WGS84'
+    })
+    viewer.addBaseLayer(baselayer_img, {
+      iconUrl: 'examples/images/icon/img.png',
+      name: '地图'
+    })
+
+    let layer = new DC.TilesetLayer('layer')
+    viewer.addLayer(layer)
+    let tileset = new DC.Tileset(
+      'http://earthsdk.com/v/last/Apps/assets/dayanta/tileset.json'
+    )
+    tileset.setHeight(-420)
+    layer.addOverlay(tileset)
+    viewer.flyTo(tileset)
+
+  }
+  DC.ready(initViewer)
+</script>

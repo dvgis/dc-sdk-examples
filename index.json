@@ -77,8 +77,16 @@
               "label": "百度"
             },
             {
+              "name": "baidu_no_offset",
+              "label": "百度(无偏移)"
+            },
+            {
               "name": "amap",
               "label": "高德"
+            },
+            {
+              "name": "amap_no_offset",
+              "label": "高德(无偏移)"
             },
             {
               "name": "tencent",
