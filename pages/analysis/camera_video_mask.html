@@ -8,11 +8,12 @@
   let cameraVideo = undefined
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    viewer.setOptions({
-      globe:{
-        baseColor:DC.Color.BLACK
-      }
+    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
+    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
+      style: 'img'
     })
+    viewer.addBaseLayer(baselayer)
     let layer1 = new DC.TilesetLayer('layer').addTo(viewer)
     let tileset = new DC.Tileset(
       'http://earthsdk.com/v/last/Apps/assets/dayanta/tileset.json'
