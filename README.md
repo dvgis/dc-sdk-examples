@@ -1,2 +1,2 @@
 # dc-sdk-examples
-DC-SDK代码开发示例
+DC-SDK开发示例
