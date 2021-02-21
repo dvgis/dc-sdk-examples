@@ -450,6 +450,10 @@
               "label": "自定义背景"
             },
             {
+              "name": "sky_box",
+              "label": "天空盒"
+            },
+            {
               "name": "underground",
               "label": "地下模式"
             },
