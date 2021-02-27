@@ -58,15 +58,26 @@
       },
       offsetAngle: 165
     },
+    {
+      sources: {
+        positiveX: 'examples/images/sky-box/5/right.jpg',
+        negativeX: 'examples/images/sky-box/5/left.jpg',
+        positiveY: 'examples/images/sky-box/5/back.jpg',
+        negativeY: 'examples/images/sky-box/5/front.jpg',
+        positiveZ: 'examples/images/sky-box/5/up.jpg',
+        negativeZ: 'examples/images/sky-box/5/down.jpg'
+      },
+      offsetAngle: 0
+    }
   ]
 
 
   function addGuiController(){
     let controls = {
-      type:0,
+      type:5,
     }
     let gui = new dat.GUI()
-    gui.add(controls,'type',{'效果一':0,'效果二':1,'效果三':2,'效果四':3,'效果五':4}).onChange(value=>{
+    gui.add(controls,'type',{'效果一':0,'效果二':1,'效果三':2,'效果四':3,'效果五':4,'效果六':5}).onChange(value=>{
       viewer.setOptions({
         skyBox : skyBoxes[value]
       })
@@ -76,7 +87,7 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    viewer.scene.skyBox = new DC.SkyBox(skyBoxes[0])
+    viewer.scene.skyBox = new DC.SkyBox(skyBoxes[5])
     let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
       style: 'img'
     })

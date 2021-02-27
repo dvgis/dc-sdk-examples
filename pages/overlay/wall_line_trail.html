@@ -19,9 +19,13 @@
       '-107.0,43.0,100000.0;-97.0,43.0,100000.0;-97.0,40.0,100000.0;-107.0,40.0,100000.0;-107.0,43.0,100000.0'
     )
     wall.setStyle({
-      material: new DC.WallTrailMaterialProperty({
+      material: new DC.WallLineTrailMaterialProperty({
         color: DC.Color.GREEN,
-        speed: 2
+        speed: 4,
+        repeat:{
+          x:2,
+          y:1.5,
+        }
       })
     })
     layer.addOverlay(wall)

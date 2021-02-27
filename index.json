@@ -251,6 +251,17 @@
               "label": "闪烁线",
               "isPlugin": true,
               "suffix": "gif"
+            },
+            {
+              "name": "polyline_lighting",
+              "label": "发光线",
+              "isPlugin": true
+            },
+            {
+              "name": "polyline_lighting_trail",
+              "label": "发光轨迹线",
+              "isPlugin": true,
+              "suffix": "gif"
             }
           ]
         },
@@ -298,6 +309,36 @@
             {
               "name": "circle_fade",
               "label": "圆(逐渐消逝)",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
+              "name": "circle_blur",
+              "label": "模糊圆",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
+              "name": "circle_diffuse",
+              "label": "扩散圆",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
+              "name": "circle_spiral",
+              "label": "螺旋圆",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
+              "name": "circle_pulse",
+              "label": "脉冲圆",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
+              "name": "radar_wave",
+              "label": "波纹雷达",
               "suffix": "gif",
               "isPlugin": true
             }

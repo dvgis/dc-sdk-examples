@@ -1,0 +1,27 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+
+    let polyline = new DC.Polyline('-75, 35; -125, 35')
+    polyline.setStyle({
+      width: 20,
+      material: new DC.PolylineLightingMaterialProperty({
+        color: DC.Color.YELLOW,
+      }),
+      clampToGround: true
+    })
+    layer.addOverlay(polyline)
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>
