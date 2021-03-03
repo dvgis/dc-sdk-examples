@@ -337,6 +337,24 @@
               "isPlugin": true
             },
             {
+              "name": "circle_vary",
+              "label": "多彩圆",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
+              "name": "radar_line",
+              "label": "雷达线",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
+              "name": "radar_pic",
+              "label": "图片雷达",
+              "suffix": "gif",
+              "isPlugin": true
+            },
+            {
               "name": "radar_wave",
               "label": "波纹雷达",
               "suffix": "gif",

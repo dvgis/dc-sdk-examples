@@ -34,10 +34,10 @@
     let center = DC.Position.fromObject({lng: 121.49536592256028, lat: 31.241616722278213})
     let circle = new DC.Circle(center,3000)
     circle.setStyle({
-       material: new DC.RadarWaveMaterialProperty({
-         color: new DC.Color(0, 1.0, 1.0,0.8) ,
-         speed: 5.0
-       })
+      material: new DC.CircleVaryMaterialProperty({
+        color:DC.Color.RED.withAlpha(0.2),
+        speed: 5.0
+      })
     })
     layer.addOverlay(circle)
     viewer.flyToPosition("121.4941629,31.2091462,1859.56,0,-28.71")
