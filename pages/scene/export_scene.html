@@ -1,0 +1,39 @@
+<div id="viewer-container"></div>
+<div class="btn-box">
+  <ul>
+    <li><button onclick="exportScene()">导出场景</button></li>
+  </ul>
+</div>
+
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container',{
+      contextOptions:{
+        webgl:{
+          stencil:true,
+          preserveDrawingBuffer:true,
+        }
+      }
+    })
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img',
+      crs:"WGS84"
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.TilesetLayer('layer')
+    viewer.addLayer(layer)
+    let tileset = new DC.Tileset(
+      'http://earthsdk.com/v/last/Apps/assets/dayanta/tileset.json'
+    )
+    tileset.setHeight(-420)
+    layer.addOverlay(tileset)
+    viewer.flyTo(tileset)
+  }
+
+  function exportScene(){
+      viewer.exportScene()
+  }
+  DC.ready(initViewer)
+</script>

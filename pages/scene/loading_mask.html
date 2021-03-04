@@ -1,0 +1,28 @@
+<div id="viewer-container"></div>
+
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    viewer.loadingMask.enable = true
+    addGuiController() // add controller
+  }
+
+  function addGuiController(){
+    let controls = {
+      enable :true,
+    }
+    let gui = new dat.GUI();
+    gui.add(controls,'enable',).onChange(value=>{
+      viewer.loadingMask.enable = value
+    })
+  }
+
+  DC.ready(initViewer)
+
+</script>

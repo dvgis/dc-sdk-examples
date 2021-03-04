@@ -9,7 +9,7 @@
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    viewer.changeMouseMode(1) // 0:默认鼠标操作模式 1：鼠标中键只可缩放，鼠标右键按下拖动为翻转
+    viewer.changeMouseMode(DC.MouseMode.LEFT_RIGHT) //LEFT_MIDDLE:默认鼠标操作模式 LEFT_RIGHT：鼠标中键只可缩放，鼠标右键按下拖动为翻转
   }
   DC.ready(initViewer)
 </script>

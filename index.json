@@ -407,7 +407,7 @@
             },
             {
               "name": "wall",
-              "label": "墙体"
+              "label": "基础墙体"
             },
             {
               "name": "wall_trail",
@@ -415,12 +415,22 @@
               "suffix": "gif"
             },
             {
+              "name": "wall_image_trail",
+              "label": "流动图片墙体",
+              "suffix": "gif"
+            },
+            {
               "name": "plane",
-              "label": "平面"
+              "label": "基础平面"
             },
             {
               "name": "ellipsoid",
-              "label": "球体"
+              "label": "基础球体"
+            },
+            {
+              "name": "ellipsoid_trail",
+              "label": "轨迹球体",
+              "suffix": "gif"
             }
           ]
         },
@@ -513,6 +523,10 @@
               "label": "天空盒"
             },
             {
+              "name": "export_scene",
+              "label": "场景导出"
+            },
+            {
               "name": "underground",
               "label": "地下模式"
             },
@@ -557,6 +571,11 @@
             {
               "name": "locationbar",
               "label": "位置信息"
+            },
+            {
+              "name": "loading_mask",
+              "label": "加载蒙层",
+              "suffix": "gif"
             }
           ]
         },

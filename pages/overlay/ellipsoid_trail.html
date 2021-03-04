@@ -1,0 +1,26 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+
+    let ellipsoid = new DC.Ellipsoid('-108.0, 40.0',{x:200000.0, y:200000.0, z:200000.0}).setStyle({
+      maximumCone: DC.Math.PI_OVER_TWO,
+      material: new DC.EllipsoidTrailMaterialProperty({
+        color: DC.Color.fromCssColorString('#00ffff'),
+        speed:5
+      })
+    }).addTo(layer)
+
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>
