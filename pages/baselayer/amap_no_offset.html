@@ -22,6 +22,15 @@
       name: '地图'
     })
 
+    let baselayer_cva = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'cva',
+      crs:'WGS84'
+    })
+    viewer.addBaseLayer([baselayer_img, baselayer_cva], {
+      iconUrl: 'examples/images/icon/img.png',
+      name: '地图'
+    })
+
     let layer = new DC.TilesetLayer('layer')
     viewer.addLayer(layer)
     let tileset = new DC.Tileset(

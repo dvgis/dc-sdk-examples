@@ -157,13 +157,11 @@
         {
           "name": "cluster_circle",
           "label": "聚合(默认样式)",
-          "isPlugin": true,
           "suffix": "gif"
         },
         {
           "name": "cluster_clustering",
           "label": "聚合(聚合样式)",
-          "isPlugin": true,
           "suffix": "gif"
         },
         {
@@ -231,36 +229,30 @@
             {
               "name": "polyline_trail",
               "label": "颜色轨迹线",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "polyline_image_trail",
               "label": "图片轨迹线",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "polyline_flow",
               "label": "流动线",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "polyline_flicker",
               "label": "闪烁线",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "polyline_lighting",
-              "label": "发光线",
-              "isPlugin": true
+              "label": "发光线"
             },
             {
               "name": "polyline_lighting_trail",
               "label": "发光轨迹线",
-              "isPlugin": true,
               "suffix": "gif"
             }
           ]
@@ -303,62 +295,52 @@
             {
               "name": "circle_wave",
               "label": "波纹圆",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "circle_fade",
               "label": "圆(逐渐消逝)",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "circle_blur",
               "label": "模糊圆",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "circle_diffuse",
               "label": "扩散圆",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "circle_spiral",
               "label": "螺旋圆",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "circle_pulse",
               "label": "脉冲圆",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "circle_vary",
               "label": "多彩圆",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "radar_line",
               "label": "雷达线",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "radar_pic",
               "label": "图片雷达",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             },
             {
               "name": "radar_wave",
               "label": "波纹雷达",
-              "suffix": "gif",
-              "isPlugin": true
+              "suffix": "gif"
             }
           ]
         },
@@ -586,25 +568,21 @@
             {
               "name": "snow",
               "label": "雪天效果",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "rain",
               "label": "雨天效果",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "cloud",
               "label": "云效果",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "fog",
-              "label": "雾天效果",
-              "isPlugin": true
+              "label": "雾天效果"
             }
           ]
         },
@@ -615,43 +593,36 @@
             {
               "name": "start_animation",
               "label": "开场动画",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "globe_rotate",
               "label": "地球自转",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "flying",
               "label": "定点巡航",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "around_view",
               "label": "绕地环绕",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "around_point",
               "label": "绕点环绕",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "circle_scan",
               "label": "扫描圈",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "radar_scan",
               "label": "雷达扫描",
-              "isPlugin": true,
               "suffix": "gif"
             }
           ]
@@ -662,38 +633,31 @@
           "examples": [
             {
               "name": "bloom",
-              "label": "泛光效果",
-              "isPlugin": true
+              "label": "泛光效果"
             },
             {
               "name": "brightness",
-              "label": "场景明亮",
-              "isPlugin": true
+              "label": "场景明亮"
             },
             {
               "name": "depth_of_field",
-              "label": "景深",
-              "isPlugin": true
+              "label": "景深"
             },
             {
               "name": "silhouette",
-              "label": "轮廓",
-              "isPlugin": true
+              "label": "轮廓"
             },
             {
               "name": "black_and_white",
-              "label": "黑白",
-              "isPlugin": true
+              "label": "黑白"
             },
             {
               "name": "night_vision",
-              "label": "夜视场景",
-              "isPlugin": true
+              "label": "夜视场景"
             },
             {
               "name": "lens_flare",
-              "label": "镜头耀斑",
-              "isPlugin": true
+              "label": "镜头耀斑"
             }
           ]
         },
@@ -704,31 +668,26 @@
             {
               "name": "roaming_free",
               "label": "自由视角",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "roaming_fp",
               "label": "第一视角",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "roaming_tp",
               "label": "第三视角",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "roaming_tracked",
               "label": "跟随视角",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "roaming_event",
               "label": "漫游点位事件",
-              "isPlugin": true,
               "suffix": "gif"
             }
           ]
@@ -802,6 +761,28 @@
               "suffix": "gif"
             }
           ]
+        },
+        {
+          "name": "turf",
+          "label": "Turf 相关",
+          "examples": [
+            {
+              "name": "point_buffer",
+              "label": "点位缓冲"
+            },
+            {
+              "name": "polyline_buffer",
+              "label": "线缓冲"
+            },
+            {
+              "name": "polygon_buffer",
+              "label": "面缓冲"
+            },
+            {
+              "name": "polygon_scale",
+              "label": "比例面"
+            }
+          ]
         }
       ]
     },
@@ -816,13 +797,11 @@
             {
               "name": "heat",
               "label": "热区图层",
-              "isPlugin": true,
               "suffix": "gif"
             },
             {
               "name": "wind",
               "label": "风向图层",
-              "isPlugin": true,
               "suffix": "gif"
             }
           ]

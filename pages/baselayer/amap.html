@@ -17,6 +17,14 @@
       name: '地图'
     })
 
+    let baselayer_cva = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'cva'
+    })
+    viewer.addBaseLayer([baselayer_img, baselayer_cva], {
+      iconUrl: 'examples/images/icon/img.png',
+      name: '地图'
+    })
+
     viewer.zoomToPosition(
       new DC.Position(105.565571, 31.984708, 15362816, 0, -90)
     )
