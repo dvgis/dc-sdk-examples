@@ -414,6 +414,10 @@
               "label": "基础球体"
             },
             {
+              "name": "cylinder",
+              "label": "基础柱体"
+            },
+            {
               "name": "ellipsoid_trail",
               "label": "轨迹球体",
               "suffix": "gif"

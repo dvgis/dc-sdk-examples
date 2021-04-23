@@ -1,0 +1,40 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img',
+      crs:"WGS84"
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+    let redCylinder = new DC.Cylinder('120.1,32.0',20000,5000,5000)
+    redCylinder.setStyle({
+      material: DC.Color.RED.withAlpha(0.5)
+    })
+    let greenCylinder = new DC.Cylinder('120.3, 32.0',20000,0,5000)
+    greenCylinder.setStyle({
+      material: DC.Color.GREEN.withAlpha(0.5)
+    })
+    let blueCylinder = new DC.Cylinder('120.5, 32.0',20000,5000,0)
+    blueCylinder.setStyle({
+      material: DC.Color.BLUE.withAlpha(0.5)
+    })
+    let yellowCylinder = new DC.Cylinder('120.7,32.0',20000,0,5000)
+    yellowCylinder.setStyle({
+      slices:4,
+      material: DC.Color.YELLOW.withAlpha(0.5)
+    })
+    let orangeCylinder = new DC.Cylinder('120.9,32.0,0,20,-40',20000,5000,0)
+    orangeCylinder.setStyle({
+      slices:4,
+      material: DC.Color.ORANGE.withAlpha(0.5)
+    })
+    layer.addOverlay(redCylinder).addOverlay(greenCylinder).addOverlay(blueCylinder).addOverlay(yellowCylinder).addOverlay(orangeCylinder)
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>
