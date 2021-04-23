@@ -1,101 +1,48 @@
 <div id="viewer-container" style="background:green"></div>
+<div class="btn-box">
+  <ul>
+    <li><button onclick="changeType(0)">效果一</button></li>
+    <li><button onclick="changeType(1)">效果二</button></li>
+    <li><button onclick="changeType(2)">效果三</button></li>
+    <li><button onclick="changeType(3)">效果四</button></li>
+    <li><button onclick="changeType(4)">效果五</button></li>
+  </ul>
+</div>
 <script>
   let viewer = undefined
 
-  let skyBoxes=[
-    {
-      sources: {
-        positiveX: 'examples/images/sky-box/0/right.jpg',
-        negativeX: 'examples/images/sky-box/0/left.jpg',
-        positiveY: 'examples/images/sky-box/0/back.jpg',
-        negativeY: 'examples/images/sky-box/0/front.jpg',
-        positiveZ: 'examples/images/sky-box/0/up.jpg',
-        negativeZ: 'examples/images/sky-box/0/down.jpg'
-      },
-      offsetAngle: 165
-    },
-    {
-      sources: {
-        positiveX: 'examples/images/sky-box/1/right.png',
-        negativeX: 'examples/images/sky-box/1/left.png',
-        positiveY: 'examples/images/sky-box/1/back.png',
-        negativeY: 'examples/images/sky-box/1/front.png',
-        positiveZ: 'examples/images/sky-box/1/up.png',
-        negativeZ: 'examples/images/sky-box/1/down.png'
-      },
-      offsetAngle: 145
-    },
-    {
-      sources: {
-        positiveX: 'examples/images/sky-box/2/right.jpg',
-        negativeX: 'examples/images/sky-box/2/left.jpg',
-        positiveY: 'examples/images/sky-box/2/back.jpg',
-        negativeY: 'examples/images/sky-box/2/front.jpg',
-        positiveZ: 'examples/images/sky-box/2/up.jpg',
-        negativeZ: 'examples/images/sky-box/2/down.jpg'
-      },
-      offsetAngle: 165
-    },
-    {
-      sources: {
-        positiveX: 'examples/images/sky-box/3/right.jpg',
-        negativeX: 'examples/images/sky-box/3/left.jpg',
-        positiveY: 'examples/images/sky-box/3/back.jpg',
-        negativeY: 'examples/images/sky-box/3/front.jpg',
-        positiveZ: 'examples/images/sky-box/3/up.jpg',
-        negativeZ: 'examples/images/sky-box/3/down.jpg'
-      },
-      offsetAngle: 145
-    },
-    {
-      sources: {
-        positiveX: 'examples/images/sky-box/4/right.jpg',
-        negativeX: 'examples/images/sky-box/4/left.jpg',
-        positiveY: 'examples/images/sky-box/4/back.jpg',
-        negativeY: 'examples/images/sky-box/4/front.jpg',
-        positiveZ: 'examples/images/sky-box/4/up.jpg',
-        negativeZ: 'examples/images/sky-box/4/down.jpg'
-      },
-      offsetAngle: 165
-    },
-    {
-      sources: {
-        positiveX: 'examples/images/sky-box/5/right.jpg',
-        negativeX: 'examples/images/sky-box/5/left.jpg',
-        positiveY: 'examples/images/sky-box/5/back.jpg',
-        negativeY: 'examples/images/sky-box/5/front.jpg',
-        positiveZ: 'examples/images/sky-box/5/up.jpg',
-        negativeZ: 'examples/images/sky-box/5/down.jpg'
-      },
-      offsetAngle: 0
-    }
-  ]
+  let skyBoxes=[]
 
 
-  function addGuiController(){
-    let controls = {
-      type:5,
-    }
-    let gui = new dat.GUI()
-    gui.add(controls,'type',{'效果一':0,'效果二':1,'效果三':2,'效果四':3,'效果五':4,'效果六':5}).onChange(value=>{
-      viewer.setOptions({
-        skyBox : skyBoxes[value]
-      })
+  function changeType(type){
+    viewer.setOptions({
+      skyBox:skyBoxes[type]
     })
   }
 
-
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    viewer.scene.skyBox = new DC.SkyBox(skyBoxes[5])
+    for(let i = 0;i < 5;i++){
+      skyBoxes.push(new DC.SkyBox({
+          sources:{
+            positiveX: `examples/images/sky-box/${i}/right.png`,
+            negativeX: `examples/images/sky-box/${i}/left.png`,
+            positiveY: `examples/images/sky-box/${i}/down.png`,
+            negativeY: `examples/images/sky-box/${i}/up.png`,
+            positiveZ: `examples/images/sky-box/${i}/back.png`,
+            negativeZ: `examples/images/sky-box/${i}/front.png`
+          }
+        })
+      )
+    }
+    viewer.setOptions({
+      skyBox:skyBoxes[3]
+    })
     let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)
-    addGuiController()
   }
-
-
 
   DC.ready(initViewer)
 </script>

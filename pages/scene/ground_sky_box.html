@@ -1,0 +1,86 @@
+<div id="viewer-container" style="background:green"></div>
+<div class="btn-box">
+  <ul>
+    <li><button onclick="changeType(0)">白天</button></li>
+    <li><button onclick="changeType(1)">黄昏</button></li>
+    <li><button onclick="changeType(2)">夜晚</button></li>
+    <li><button onclick="changeType(3)">默认</button></li>
+  </ul>
+</div>
+<script>
+  let viewer = undefined
+
+  let skyBoxes=[]
+
+  let defaultSkyBox = undefined
+
+  let slectedType =0
+
+  let distance = 40000 // 距离阈值
+
+  function changeType(type){
+    slectedType = type
+  }
+
+  function initSkyBox(){
+    // 添加 skyBox
+    skyBoxes.push(new DC.GroundSkyBox({
+        sources:{
+          positiveX: `examples/images/sky-box/2/right.png`,
+          negativeX: `examples/images/sky-box/2/left.png`,
+          positiveY: `examples/images/sky-box/2/down.png`,
+          negativeY: `examples/images/sky-box/2/up.png`,
+          positiveZ: `examples/images/sky-box/2/back.png`,
+          negativeZ: `examples/images/sky-box/2/front.png`
+        }
+      }),
+      new DC.GroundSkyBox({
+        sources:{
+          positiveX: `examples/images/sky-box/5/right.png`,
+          negativeX: `examples/images/sky-box/5/left.png`,
+          positiveY: `examples/images/sky-box/5/down.png`,
+          negativeY: `examples/images/sky-box/5/up.png`,
+          positiveZ: `examples/images/sky-box/5/back.png`,
+          negativeZ: `examples/images/sky-box/5/front.png`
+        }
+      }),
+      new DC.GroundSkyBox({
+        sources:{
+          positiveX: `examples/images/sky-box/6/right.jpg`,
+          negativeX: `examples/images/sky-box/6/left.jpg`,
+          positiveY: `examples/images/sky-box/6/down.jpg`,
+          negativeY: `examples/images/sky-box/6/up.jpg`,
+          positiveZ: `examples/images/sky-box/6/back.jpg`,
+          negativeZ: `examples/images/sky-box/6/front.jpg`
+        }
+      }),
+      defaultSkyBox
+    )
+  }
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    defaultSkyBox = viewer.scene.skyBox
+
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img'
+    })
+    viewer.addBaseLayer(baselayer)
+    initSkyBox()
+    viewer.on(DC.SceneEventType.POST_RENDER,()=>{
+      if(viewer.cameraPosition.alt < distance){
+        viewer.setOptions({
+          showAtmosphere:false,
+          skyBox:skyBoxes[slectedType]
+        })
+      }else {
+        viewer.setOptions({
+          showAtmosphere:true,
+          skyBox:defaultSkyBox
+        })
+      }
+    })
+  }
+
+  DC.ready(initViewer)
+</script>

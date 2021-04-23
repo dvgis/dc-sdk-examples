@@ -66,11 +66,11 @@
           "examples": [
             {
               "name": "google",
-              "label": "谷歌"
+              "label": "谷歌(已被墙)"
             },
             {
               "name": "tdt",
-              "label": "天地图"
+              "label": "天地图(需要key)"
             },
             {
               "name": "baidu",
@@ -102,6 +102,10 @@
           "name": "offline",
           "label": "离线地图",
           "examples": [
+            {
+              "name": "img",
+              "label": "影像图"
+            },
             {
               "name": "day",
               "label": "单图片"
@@ -505,6 +509,10 @@
               "label": "天空盒"
             },
             {
+              "name": "ground_sky_box",
+              "label": "近地天空盒"
+            },
+            {
               "name": "export_scene",
               "label": "场景导出"
             },
@@ -747,6 +755,20 @@
       "label": "编辑与分析",
       "children": [
         {
+          "name": "positon-editor",
+          "label": "位置编辑",
+          "examples": [
+            {
+              "name": "model_position",
+              "label": "单体模型编辑"
+            },
+            {
+              "name": "tileset_position",
+              "label": "流式模型编辑"
+            }
+          ]
+        },
+        {
           "name": "video",
           "label": "视频融合",
           "examples": [
@@ -764,7 +786,7 @@
         },
         {
           "name": "turf",
-          "label": "Turf 相关",
+          "label": "Turf 计算",
           "examples": [
             {
               "name": "point_buffer",
@@ -781,6 +803,24 @@
             {
               "name": "polygon_scale",
               "label": "比例面"
+            }
+          ]
+        },
+        {
+          "name": "clipping",
+          "label": "剖切分析",
+          "examples": [
+            {
+              "name": "globe_clipping",
+              "label": "地球剖切"
+            },
+            {
+              "name": "terrain_clipping",
+              "label": "地形剖切(默认)"
+            },
+            {
+              "name": "terrain_clipping_ch",
+              "label": "地形剖切(中国)"
             }
           ]
         }
