@@ -145,6 +145,10 @@
             {
               "name": "ter_arcgis",
               "label": "Arcgis地形"
+            },
+            {
+              "name": "ter_exaggeration",
+              "label": "地形夸张"
             }
           ]
         }
@@ -181,11 +185,15 @@
           "label": "Html图层"
         },
         {
+          "name": "dynamic",
+          "label": "动态图层",
+          "suffix": "gif"
+        },
+        {
           "name": "czml",
           "label": "Czml图层",
           "suffix": "gif"
         }
-
       ]
     },
     {
@@ -420,6 +428,16 @@
             {
               "name": "ellipsoid_trail",
               "label": "轨迹球体",
+              "suffix": "gif"
+            },
+            {
+              "name": "dynamic_model",
+              "label": "动态模型",
+              "suffix": "gif"
+            },
+            {
+              "name": "dynamic_billboard",
+              "label": "动态图标",
               "suffix": "gif"
             }
           ]
@@ -759,8 +777,8 @@
       "label": "编辑与分析",
       "children": [
         {
-          "name": "positon-editor",
-          "label": "位置编辑",
+          "name": "model-editor",
+          "label": "模型编辑",
           "examples": [
             {
               "name": "model_position",
@@ -769,6 +787,11 @@
             {
               "name": "tileset_position",
               "label": "流式模型编辑"
+            },
+            {
+              "name": "model_manager",
+              "label": "模型管理",
+              "suffix": "gif"
             }
           ]
         },
@@ -827,6 +850,17 @@
               "label": "地形剖切(中国)"
             }
           ]
+        },
+        {
+          "name": "space",
+          "label": "场景分析",
+          "examples": [
+            {
+              "name": "shadows",
+              "label": "日照分析",
+              "suffix": "gif"
+            }
+          ]
         }
       ]
     },
@@ -840,8 +874,11 @@
           "examples": [
             {
               "name": "heat",
-              "label": "热区图层",
-              "suffix": "gif"
+              "label": "热区图层"
+            },
+            {
+              "name": "heat_height",
+              "label": "热区图层(高度)"
             },
             {
               "name": "wind",

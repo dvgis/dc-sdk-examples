@@ -1,0 +1,39 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function generatePosition(num) {
+    let list = []
+    for (let i = 0; i < num; i++) {
+      let lng = 120.65276089+ Math.random() * 0.5
+      let lat = 31.310530293 + Math.random() * 0.5
+      list.push({lng,lat})
+    }
+    return list
+  }
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style:"dark",
+      crs:'WGS84'
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.DynamicLayer('layer').addTo(viewer)
+    for(let i = 0; i<50; i++){
+      let model = new DC.DynamicModel(generatePosition(1)[0],'examples/data/model/qiche.gltf')
+      model.setStyle({
+        scale:10
+      })
+      layer.addOverlay(model)
+    }
+    setInterval(()=>{
+      layer.getOverlays().forEach(item=>{
+        item.addPosition(generatePosition(1)[0],10)
+      })
+    },10000)
+
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>

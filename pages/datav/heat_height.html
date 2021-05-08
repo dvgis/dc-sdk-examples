@@ -19,11 +19,13 @@
       crs:'WGS84'
     })
     viewer.addBaseLayer(baselayer)
-    let layer = new DC.HeatLayer('layer')
+    let layer = new DC.HeatLayer('layer',{})
     viewer.addLayer(layer)
-    let positions = generatePosition(1000)
-    layer.setPositions(positions)
-    viewer.flyToPosition("120.670183527,31.348282115,109658.22,0,-89.90659095062371")
+    layer.setPositions(generatePosition(10000))
+    let layer2 = new DC.HeatLayer('layer2',{ height:4000 })
+    viewer.addLayer(layer2)
+    layer2.setPositions( generatePosition(10000))
+    viewer.flyToPosition("120.58464690,30.57441821,35840.6299288431,5.80,-27.24")
   }
   DC.ready(initViewer)
 </script>
