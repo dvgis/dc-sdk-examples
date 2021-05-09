@@ -859,6 +859,14 @@
               "name": "shadows",
               "label": "日照分析",
               "suffix": "gif"
+            },
+            {
+              "name": "sight_line",
+              "label": "通视分析(线)"
+            },
+            {
+              "name": "sight_circle",
+              "label": "通视分析(圆)"
             }
           ]
         }
