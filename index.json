@@ -797,16 +797,21 @@
         },
         {
           "name": "video",
-          "label": "视频融合",
+          "label": "场景视频",
           "examples": [
             {
+              "name": "plane_video",
+              "label": "平面视频",
+              "suffix": "gif"
+            },
+            {
               "name": "camera_video",
-              "label": "场景视频",
+              "label": "视频融合",
               "suffix": "gif"
             },
             {
               "name": "camera_video_mask",
-              "label": "场景视频(羽化)",
+              "label": "视频融合(羽化)",
               "suffix": "gif"
             }
           ]
