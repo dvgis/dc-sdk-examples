@@ -384,6 +384,11 @@
               "name": "v_line",
               "label": "飞线",
               "suffix": "gif"
+            },
+            {
+              "name": "primitive_video",
+              "label": "视频图元",
+              "suffix": "gif"
             }
           ]
         },
@@ -470,6 +475,10 @@
               "name": "model_gv",
               "label": "汽车",
               "suffix": "gif"
+            },
+            {
+              "name": "model_primitive",
+              "label": "模型图元"
             }
           ]
         },
@@ -853,6 +862,10 @@
             {
               "name": "terrain_clipping_ch",
               "label": "地形剖切(中国)"
+            },
+            {
+              "name": "tileset_clipping",
+              "label": "Tileset剖切"
             }
           ]
         },
