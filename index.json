@@ -885,6 +885,10 @@
             {
               "name": "sight_circle",
               "label": "通视分析(圆)"
+            },
+            {
+              "name": "viewshed",
+              "label": "可视域分析"
             }
           ]
         }
