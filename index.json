@@ -889,6 +889,10 @@
             {
               "name": "viewshed",
               "label": "可视域分析"
+            },
+            {
+              "name": "contourLine",
+              "label": "等高线"
             }
           ]
         }

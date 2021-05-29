@@ -27,7 +27,9 @@
 
     gui.add(controls,'showSkyBox').onChange(value=>{
       viewer.setOptions({
-        showSkyBox:value
+       skyBox:{
+         show:value
+       }
       })
     })
 
