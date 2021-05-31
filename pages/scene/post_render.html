@@ -4,10 +4,15 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
     let key = '0f7c1d161d7352116a21aacf0e9f44c1'
-    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+    let cva = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key,
+      style: 'cva'
+    })
+
+    let vec = DC.ImageryLayerFactory.createTdtImageryLayer({
       key
     })
-    viewer.addBaseLayer(baselayer)
+    viewer.addBaseLayer([vec, cva])
     viewer.on(DC.SceneEventType.POST_RENDER, e => {
       console.log(e)
     })
