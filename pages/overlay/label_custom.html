@@ -14,11 +14,15 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
     let key = '0f7c1d161d7352116a21aacf0e9f44c1'
-    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+    let cva = DC.ImageryLayerFactory.createTdtImageryLayer({
       key,
-      style: 'img'
+      style: 'cva'
     })
-    viewer.addBaseLayer(baselayer)
+
+    let vec = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key
+    })
+    viewer.addBaseLayer([vec, cva])
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)
     let positions = generatePosition(20)

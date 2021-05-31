@@ -4,10 +4,9 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
-    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
-      key,
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img',
+      crs:'WGS84'
     })
     viewer.addBaseLayer(baselayer)
     let coords=`120.99033554014366,31.39560938002704;120.99041939679988,31.39445508618271;

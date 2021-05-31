@@ -8,10 +8,9 @@
         depthTestAgainstTerrain: true
       }
     })
-    let key = '1c3ff1358b17417f1782dd1ae7bdd00a'
-    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
-      key,
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img',
+      crs:'WGS84'
     })
     viewer.addBaseLayer(baselayer)
   }

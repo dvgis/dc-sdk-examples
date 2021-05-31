@@ -7,9 +7,7 @@
     viewer = new DC.Viewer('viewer-container', {
       sceneMode: DC.SceneMode.SCENE2D
     })
-    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
-    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
-      key,
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
       style: 'img'
     })
     viewer.addBaseLayer(baselayer)

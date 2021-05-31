@@ -19,10 +19,9 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let key = '0f7c1d161d7352116a21aacf0e9f44c1'
-    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
-      key,
-      style: 'img'
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img',
+      crs:'WGS84'
     })
     baselayer.defaultBrightness = 0.1
     viewer.addBaseLayer(baselayer)

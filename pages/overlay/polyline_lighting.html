@@ -4,9 +4,9 @@
 
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-
     let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
-      style: 'img'
+      style: 'img',
+      crs:'WGS84'
     })
     viewer.addBaseLayer(baselayer)
     let layer = new DC.VectorLayer('layer')
