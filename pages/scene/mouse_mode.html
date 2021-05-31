@@ -4,11 +4,15 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
     let key = '0f7c1d161d7352116a21aacf0e9f44c1'
-    let baselayer = DC.ImageryLayerFactory.createTdtImageryLayer({
+    let cva = DC.ImageryLayerFactory.createTdtImageryLayer({
       key,
-      style: 'img'
+      style: 'cva'
     })
-    viewer.addBaseLayer(baselayer)
+
+    let vec = DC.ImageryLayerFactory.createTdtImageryLayer({
+      key
+    })
+    viewer.addBaseLayer([vec, cva])
     viewer.changeMouseMode(DC.MouseMode.LEFT_RIGHT) //LEFT_MIDDLE:默认鼠标操作模式 LEFT_RIGHT：鼠标中键只可缩放，鼠标右键按下拖动为翻转
   }
   DC.ready(initViewer)
