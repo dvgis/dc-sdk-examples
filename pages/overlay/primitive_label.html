@@ -13,16 +13,23 @@
   }
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
-    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer()
-    viewer.addBaseLayer(baselayer)
-    let layer = new DC.VectorLayer('layer')
-    viewer.addLayer(layer)
-    let positions = generatePosition(100)
-    positions.forEach(item => {
-      let billboard = new DC.Billboard(item, 'examples/images/icon/camera.png')
-      layer.addOverlay(billboard)
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style:'img',
+      crs:'WGS84'
     })
-    viewer.flyTo(layer)
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.PrimitiveLayer('layer')
+    viewer.addLayer(layer)
+    let positions = generatePosition(20)
+    positions.forEach(item => {
+      let label = new DC.LabelPrimitive(item, '数字视觉')
+      label.setStyle({
+        fillColor: DC.Color.YELLOW,
+        font: '12px'
+      })
+      layer.addOverlay(label)
+    })
+    viewer.flyToPosition("120.8226729498609,31.268693185250438,114716.63624611919,0,-90")
   }
   DC.ready(initViewer)
 </script>

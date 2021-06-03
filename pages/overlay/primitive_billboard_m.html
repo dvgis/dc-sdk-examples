@@ -20,7 +20,7 @@
     console.log('create point time: ' + (new Date().getTime() - start) / 1000 )
     start = new Date().getTime()
     positions.forEach(item => {
-      let billboard = new DC.Billboard(item, 'examples/images/icon/camera.png')
+      let billboard = new DC.BillboardPrimitive(item, 'examples/images/icon/camera.png')
       billboard.on(DC.MouseEventType.CLICK,e=> console.log(e))
       layer.addOverlay(billboard)
     })
@@ -46,11 +46,12 @@
       crs:'WGS84'
     })
     viewer.addBaseLayer(baselayer)
-    layer = new DC.VectorLayer('layer')
+    layer = new DC.PrimitiveLayer('layer')
     viewer.addLayer(layer)
     let positions = generatePosition(100)
     positions.forEach(item => {
-      let billboard = new DC.Billboard(item, 'examples/images/icon/camera.png')
+      let billboard = new DC.BillboardPrimitive(item, 'examples/images/icon/camera.png')
+      billboard.on(DC.MouseEventType.CLICK,e=> console.log(e))
       layer.addOverlay(billboard)
     })
     viewer.flyToPosition("120.8226729498609,31.268693185250438,114716.63624611919,0,-90")

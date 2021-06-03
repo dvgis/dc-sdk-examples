@@ -218,7 +218,7 @@
             },
             {
               "name": "point_icon_m",
-              "label": "图标点(一万)"
+              "label": "图标点(大量)"
             },
             {
               "name": "point_html",
@@ -361,6 +361,31 @@
           "label": "图元要素",
           "examples": [
             {
+              "name": "primitive_point",
+              "label": "点图元"
+            },
+            {
+              "name": "primitive_polyline",
+              "label": "线图元"
+            },
+            {
+              "name": "primitive_billboard",
+              "label": "图标图元"
+            },
+            {
+              "name": "primitive_billboard_m",
+              "label": "图标图元(大量)"
+            },
+            {
+              "name": "primitive_label",
+              "label": "文本图元"
+            },
+            {
+              "name": "primitive_video",
+              "label": "视频图元",
+              "suffix": "gif"
+            },
+            {
               "name": "water",
               "label": "流动水面",
               "suffix": "gif"
@@ -383,11 +408,6 @@
             {
               "name": "v_line",
               "label": "飞线",
-              "suffix": "gif"
-            },
-            {
-              "name": "primitive_video",
-              "label": "视频图元",
               "suffix": "gif"
             }
           ]
@@ -548,6 +568,10 @@
               "label": "场景导出"
             },
             {
+              "name": "destroy",
+              "label": "场景销毁"
+            },
+            {
               "name": "underground",
               "label": "地下模式"
             },
@@ -555,6 +579,7 @@
               "name": "mouse_mode",
               "label": "鼠标模式切换"
             }
+
           ]
         },
         {

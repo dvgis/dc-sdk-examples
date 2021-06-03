@@ -1,0 +1,26 @@
+<div id="viewer-container"></div>
+<div class="btn-box">
+  <ul>
+    <li><button onclick="create()">创建</button></li>
+    <li><button onclick="destroy()">销毁</button></li>
+  </ul>
+</div>
+<script>
+
+  let viewer = undefined
+
+  function create(){
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style: 'img',
+      crs:'WGS84'
+    })
+    viewer.addBaseLayer(baselayer)
+  }
+
+  function destroy(){
+    viewer.destroy()
+  }
+
+  DC.ready(create)
+</script>

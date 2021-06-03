@@ -1,0 +1,38 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    viewer.setOptions({
+      enableFxaa:true
+    })
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style:'img',
+      crs:"WGS84"
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.PrimitiveLayer('layer')
+    viewer.addLayer(layer)
+
+    let polyline = new DC.PolylinePrimitive('-75, 34; -90, 34')
+    polyline.setStyle({
+      width: 3,
+      material: DC.Material.fromType(DC.Material.ColorType,{color:DC.Color.RED}),
+    })
+    layer.addOverlay(polyline)
+    polyline = new DC.PolylinePrimitive('-75, 33; -90, 33')
+    polyline.setStyle({
+      width: 3,
+      material: DC.Material.fromType(DC.Material.PolylineArrowType,{color:DC.Color.GREEN}),
+    })
+    layer.addOverlay(polyline)
+    polyline = new DC.PolylinePrimitive('-75, 32; -90, 32')
+    polyline.setStyle({
+      width: 3,
+      material: DC.Material.fromType(DC.Material.PolylineDashType,{color:DC.Color.ORANGE}),
+    })
+    layer.addOverlay(polyline)
+  }
+  DC.ready(initViewer)
+</script>
