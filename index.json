@@ -409,6 +409,11 @@
               "name": "v_line",
               "label": "飞线",
               "suffix": "gif"
+            },
+            {
+              "name": "wall_diffuse",
+              "label": "扩散墙",
+              "suffix": "gif"
             }
           ]
         },
