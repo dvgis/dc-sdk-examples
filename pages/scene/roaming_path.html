@@ -20,7 +20,8 @@
   function initViewer() {
     viewer = new DC.Viewer('viewer-container')
     let baseLayer = DC.ImageryLayerFactory.createAmapImageryLayer({
-      style:"img"
+      style:"img",
+      crs:"WGS84"
     })
     viewer.addBaseLayer(baseLayer)
     rc = new DC.RoamingController(viewer)
