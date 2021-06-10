@@ -732,31 +732,41 @@
         },
         {
           "name": "roaming",
-          "label": "轨迹漫游",
+          "label": "相机漫游",
           "examples": [
             {
-              "name": "roaming_free",
-              "label": "自由视角",
+              "name": "roaming_path",
+              "label": "路径漫游",
               "suffix": "gif"
             },
             {
-              "name": "roaming_fp",
-              "label": "第一视角",
+              "name": "roaming_keyboard",
+              "label": "键盘漫游"
+            }
+          ]
+        },
+        {
+          "name": "history_track",
+          "label": "历史轨迹",
+          "examples": [
+            {
+              "name": "track",
+              "label": "轨迹漫游",
               "suffix": "gif"
             },
             {
-              "name": "roaming_tp",
-              "label": "第三视角",
+              "name": "track_clamp_to_ground",
+              "label": "轨迹贴地",
               "suffix": "gif"
             },
             {
-              "name": "roaming_tracked",
-              "label": "跟随视角",
+              "name": "track_clamp_to_tileset",
+              "label": "轨迹贴模型",
               "suffix": "gif"
             },
             {
-              "name": "roaming_event",
-              "label": "漫游点位事件",
+              "name": "track_event",
+              "label": "轨迹点位事件",
               "suffix": "gif"
             }
           ]

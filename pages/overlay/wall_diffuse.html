@@ -18,12 +18,16 @@
       color:DC.Color.YELLOW
     })
     layer.addOverlay(wall)
-    wall = new DC.DiffuseWallPrimitive('121.221,31.222',2000,1000,6)
+    wall = new DC.DiffuseWallPrimitive('121.221,31.222',2000,1000)
     wall.setStyle({
-      color:DC.Color.GREEN
+      color:DC.Color.GREEN,
+      slices:6
     })
     layer.addOverlay(wall)
-    wall = new DC.DiffuseWallPrimitive('121.121,31.222',2000,1000,5)
+    wall = new DC.DiffuseWallPrimitive('121.121,31.222',2000,1000)
+    wall.setStyle({
+      slices:5
+    })
     layer.addOverlay(wall)
     viewer.flyToPosition("121.17008196721969,30.97885778607079,24403.084,3,-50.2,0.2")
   }

@@ -1,0 +1,32 @@
+<div id="viewer-container"></div>
+<div class="btn-box">
+  <ul>
+    <li><button onclick="play(1)">路径一</button></li>
+    <li><button onclick="play(2)">路径二</button></li>
+  </ul>
+</div>
+<script>
+  let viewer = undefined
+  let rc = undefined
+  let path_one = undefined
+  let path_two = undefined
+
+  function play(num){
+    rc.activate(num===1 ? path_one : path_two,{
+      range:1e7
+    } )
+  }
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baseLayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style:"img"
+    })
+    viewer.addBaseLayer(baseLayer)
+    rc = new DC.RoamingController(viewer)
+    path_one = new DC.RoamingPath("120.38105869, 31.10115627;120.38105869,32.10115627",60)
+    path_two = new DC.RoamingPath("122.38105869, 31.10115627;121.38105869, 31.10115627",100)
+    rc.addPaths([path_one,path_two])
+  }
+  DC.ready(initViewer)
+</script>
