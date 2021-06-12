@@ -521,6 +521,11 @@
               "suffix": "gif"
             },
             {
+              "name": "shp_style_and_shader",
+              "label": "矢量白膜(样式+shader)",
+              "suffix": "gif"
+            },
+            {
               "name": "osgb_dyt",
               "label": "大雁搭(倾斜摄影)"
             },
