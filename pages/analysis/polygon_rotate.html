@@ -7,6 +7,9 @@
     let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
       crs:"WSG84"
     })
+    viewer.setOptions({
+      enableFxaa:true
+    })
     viewer.addBaseLayer(baselayer)
     let layer = new DC.VectorLayer('layer')
     viewer.addLayer(layer)
@@ -15,21 +18,16 @@
       material:DC.Color.YELLOW
     })
     layer.addOverlay(polygon)
-    let coords = DC.GeoTools.transformPolygonScale("120.71259021075333,31.22148081085083;120.71611354431036,31.221447256684566;120.7140691869497,31.21875584696343",1.5)
-    let buffer = new DC.Polygon(coords)
-    buffer.setStyle({
+    let coords = DC.GeoTools.transformPolygonRotate("120.71259021075333,31.22148081085083;120.71611354431036,31.221447256684566;120.7140691869497,31.21875584696343",45)
+    polygon = new DC.Polygon(coords)
+    polygon.setStyle({
       zIndex:1,
-      material:DC.Color.RED.withAlpha(0.4)
+      material:DC.Color.RED.withAlpha(0.5)
     })
-    layer.addOverlay(buffer)
+    layer.addOverlay(polygon)
     viewer.flyTo(layer)
   }
   DC.ready(initViewer)
 </script>
-
-
-
-
-
 
 

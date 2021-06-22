@@ -889,6 +889,14 @@
             {
               "name": "polygon_scale",
               "label": "比例面"
+            },
+            {
+              "name": "polyline_rotate",
+              "label": "旋转线"
+            },
+            {
+              "name": "polygon_rotate",
+              "label": "旋转面"
             }
           ]
         },
