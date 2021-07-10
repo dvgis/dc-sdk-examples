@@ -897,6 +897,10 @@
             {
               "name": "polygon_rotate",
               "label": "旋转面"
+            },
+            {
+              "name": "polygon_sector",
+              "label": "扇形面"
             }
           ]
         },

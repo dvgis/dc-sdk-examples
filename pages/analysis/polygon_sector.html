@@ -1,0 +1,37 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      crs:"WSG84"
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.VectorLayer('layer')
+    viewer.addLayer(layer)
+    let polygon = new DC.Polygon(DC.GeoTools.sector('120.71259021075333,31.22148081085083',100,20,60))
+    polygon.setStyle({
+      material: DC.Color.YELLOW,
+      extrudedHeight:8,
+    })
+    layer.addOverlay(polygon)
+
+    polygon = new DC.Polygon(DC.GeoTools.sector('120.71259021075333,31.22148081085083',100,220,260))
+    polygon.setStyle({
+      material: DC.Color.BLUE.withAlpha(.6),
+      outline:true,
+      extrudedHeight:1,
+    })
+    layer.addOverlay(polygon)
+
+    polygon = new DC.Polygon(DC.GeoTools.sector('120.71259021075333,31.22148081085083',100,300,340))
+    polygon.setStyle({
+      material: DC.Color.RED,
+      extrudedHeight:5,
+    })
+    layer.addOverlay(polygon)
+    viewer.flyTo(layer)
+  }
+  DC.ready(initViewer)
+</script>
