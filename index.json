@@ -931,6 +931,10 @@
           "label": "场景分析",
           "examples": [
             {
+              "name": "measure",
+              "label": "空间测量"
+            },
+            {
               "name": "shadows",
               "label": "日照分析",
               "suffix": "gif"

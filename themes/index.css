@@ -34,7 +34,6 @@ body,
   right: 20px !important;
 }
 
-
 .btn-box,.check-wrapper,.info-box{
   position: fixed;
   top: 20px;
@@ -58,11 +57,10 @@ body,
   visibility: hidden;
 }
 
-.btn-box ul:nth-of-type(2){
+.btn-box ul:nth-of-type(n+2){
   margin-top: 20px;
   margin-bottom: 10px;
 }
-
 
 .btn-box ul li {
   display: inline-block;
