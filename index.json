@@ -377,8 +377,18 @@
               "label": "图标图元(大量)"
             },
             {
+              "name": "primitive_bounce_billboard",
+              "label": "跳动图标图元",
+              "suffix": "gif"
+            },
+            {
               "name": "primitive_label",
               "label": "文本图元"
+            },
+            {
+              "name": "primitive_bounce_label",
+              "label": "跳动文本图元",
+              "suffix": "gif"
             },
             {
               "name": "primitive_video",
