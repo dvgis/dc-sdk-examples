@@ -514,6 +514,10 @@
             {
               "name": "model_primitive",
               "label": "模型图元"
+            },
+            {
+              "name": "model_collection_primitive",
+              "label": "模型集合图元(合并渲染)"
             }
           ]
         },

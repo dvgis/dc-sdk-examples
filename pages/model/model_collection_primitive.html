@@ -1,0 +1,55 @@
+<div id="viewer-container"></div>
+<div class="btn-box">
+  <ul>
+    <li><button onclick="addModel(500)">五百</button></li>
+    <li><button onclick="addModel(1000)">一千</button></li>
+    <li><button onclick="addModel(5000)">五千</button></li>
+    <li><button onclick="addModel(10000)">一万</button></li>
+  </ul>
+</div>
+<script>
+  let viewer = undefined
+  let model = undefined
+  let layer = undefined
+
+  function addModel(num){
+    let start = new Date().getTime()
+    let positions = generatePosition(num)
+    console.log('create point time: ' + (new Date().getTime() - start) / 1000 )
+    start = new Date().getTime()
+    model.positions = positions
+    console.log('add point time: ' + (new Date().getTime() - start) / 1000 )
+  }
+
+  function generatePosition(num) {
+    let list = []
+    for (let i = 0; i < num; i++) {
+      let lng = 120.38105869 + Math.random()
+      let lat = 31.10115627 + Math.random()
+      list.push(new DC.Position(lng, lat,1000 * Math.random(),3600 * Math.random()))
+    }
+    return list
+  }
+
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createBaiduImageryLayer({
+      style: 'midnight'
+    })
+    viewer.addBaseLayer(baselayer)
+    layer = new DC.PrimitiveLayer('layer').addTo(viewer)
+    model = new DC.ModelCollectionPrimitive(generatePosition(100),"examples/data/model/Cesium_Air.glb")
+    model.setStyle({
+      scale:40
+    })
+    model.on(DC.MouseEventType.CLICK,e=>{
+      let overlay = e.overlay
+      let modelInstance = overlay.getModelInstance(e.instanceId)
+      console.log(modelInstance)
+    })
+    layer.addOverlay(model)
+   viewer.flyToPosition("120.82005120445152,30.903795335982288,60975.10826917929,341.02,-50.29")
+
+  }
+  DC.ready(initViewer)
+</script>
