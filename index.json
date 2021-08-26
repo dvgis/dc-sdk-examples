@@ -853,6 +853,10 @@
               "label": "单体模型编辑"
             },
             {
+              "name": "model_primitive_position",
+              "label": "模型图元编辑"
+            },
+            {
               "name": "tileset_position",
               "label": "流式模型编辑"
             },
