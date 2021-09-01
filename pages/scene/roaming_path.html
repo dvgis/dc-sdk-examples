@@ -3,6 +3,7 @@
   <ul>
     <li><button onclick="play(1)">路径一</button></li>
     <li><button onclick="play(2)">路径二</button></li>
+    <li><button onclick="stop()">结束</button></li>
   </ul>
 </div>
 <script>
@@ -13,8 +14,12 @@
 
   function play(num){
     rc.activate(num===1 ? path_one : path_two,{
-      range:1e7
-    } )
+      pitch:-30
+    })
+  }
+
+  function stop() {
+    rc.deactivate()
   }
 
   function initViewer() {
