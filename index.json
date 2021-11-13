@@ -424,6 +424,10 @@
               "name": "wall_diffuse",
               "label": "扩散墙",
               "suffix": "gif"
+            },
+            {
+              "name": "primitive_cloud",
+              "label": "云图元"
             }
           ]
         },

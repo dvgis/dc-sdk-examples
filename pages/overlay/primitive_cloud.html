@@ -1,0 +1,44 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+
+  function generatePosition(num) {
+    let list = []
+    for (let i = 0; i < num; i++) {
+      let lng = 120.38105869 + Math.random() * 0.0005
+      let lat = 31.10115627 + Math.random() * 0.0005
+      list.push(new DC.Position(lng, lat,1000))
+    }
+    return list
+  }
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+      style:'img',
+      crs:'WGS84'
+    })
+    viewer.addBaseLayer(baselayer)
+    let layer = new DC.PrimitiveLayer('layer')
+    viewer.addLayer(layer)
+    let positions = generatePosition(20)
+    positions.forEach(item => {
+      let cloud = new DC.CloudPrimitive(item)
+      cloud.setStyle({
+        scale:{
+          x:25,
+          y:12,
+        },
+        maximumSize:{
+          x:25,
+          y:12,
+          z:15,
+        },
+        slice: 0.36,
+        brightness: 1.0,
+      })
+      layer.addOverlay(cloud)
+    })
+   viewer.flyToPosition('120.3813868519986,31.101849248610826,990,225,13.26')
+  }
+  DC.ready(initViewer)
+</script>
