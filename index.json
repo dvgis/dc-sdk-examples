@@ -998,6 +998,10 @@
               "label": "热区图层(高度)"
             },
             {
+              "name": "heat_building",
+              "label": "热区图层(贴建筑)"
+            },
+            {
               "name": "wind",
               "label": "风向图层",
               "suffix": "gif"
