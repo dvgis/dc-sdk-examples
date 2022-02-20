@@ -1,0 +1,21 @@
+<div id="viewer-container"></div>
+<script>
+  let viewer = undefined
+  function initViewer() {
+    viewer = new DC.Viewer('viewer-container')
+    viewer.setOptions({
+      globe:{
+        filterColor:DC.Color.fromCssColorString("rgb(4,54,108)")
+      }
+    })
+    let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer()
+    viewer.addBaseLayer(baselayer, {
+      iconUrl: 'examples/images/icon/elec.png',
+      name: '电子'
+    })
+    viewer.zoomToPosition(
+      new DC.Position(105.565571, 31.984708, 15362816, 0, -90)
+    )
+  }
+  DC.ready(initViewer)
+</script>

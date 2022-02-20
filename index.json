@@ -131,6 +131,10 @@
             {
               "name": "split",
               "label": "双图对比"
+            },
+            {
+              "name": "filter",
+              "label": "地图滤镜"
             }
           ]
         },
