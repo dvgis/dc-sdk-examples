@@ -197,6 +197,10 @@
           "name": "czml",
           "label": "Czml图层",
           "suffix": "gif"
+        },
+        {
+          "name": "s3m",
+          "label": "S3M图层"
         }
       ]
     },
