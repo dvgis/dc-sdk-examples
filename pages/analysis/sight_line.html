@@ -84,8 +84,9 @@
       crs:"WGS84"
     })
     viewer.addBaseLayer(baselayer)
-    let terrain = DC.TerrainFactory.createUrlTerrain({
-      url: 'http://data.marsgis.cn/terrain'
+    let terrain = DC.TerrainFactory.createArcgisTerrain({
+      url:
+        'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer'
     })
     viewer.addTerrain(terrain)
     layer = new DC.VectorLayer('layer').addTo(viewer)

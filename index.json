@@ -558,6 +558,10 @@
             {
               "name": "3dmax_yqz",
               "label": "油气站(人工建模)"
+            },
+            {
+              "name": "tileset_split",
+              "label": "模型卷帘"
             }
           ]
         }
