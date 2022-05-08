@@ -662,6 +662,10 @@
               "name": "loading_mask",
               "label": "加载蒙层",
               "suffix": "gif"
+            },
+            {
+              "name": "scene_split",
+              "label": "场景对比"
             }
           ]
         },

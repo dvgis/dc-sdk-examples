@@ -34,8 +34,10 @@
 
   function draw(type){
     plot && plot.draw(type,overlay => {
-      layer.addOverlay(overlay)
-       plot.edit(overlay)
+      if(overlay){
+        layer.addOverlay(overlay)
+        plot.edit(overlay)
+      }
     })
   }
 
