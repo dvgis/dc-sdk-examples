@@ -436,6 +436,11 @@
             {
               "name": "primitive_cloud",
               "label": "云图元"
+            },
+            {
+              "name": "primitive_light_cylinder",
+              "label": "光锥图元",
+              "suffix": "gif"
             }
           ]
         },
