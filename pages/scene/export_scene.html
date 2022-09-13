@@ -9,14 +9,7 @@
   let viewer = undefined
 
   function initViewer() {
-    viewer = new DC.Viewer('viewer-container',{
-      contextOptions:{
-        webgl:{
-          stencil:true,
-          preserveDrawingBuffer:true,
-        }
-      }
-    })
+    viewer = new DC.Viewer('viewer-container')
     let baselayer = DC.ImageryLayerFactory.createAmapImageryLayer({
       style: 'img',
       crs:"WGS84"
